@@ -1,0 +1,15 @@
+POST http://localhost:5000/api/email-lookup
+Content-Type: application/json
+
+{
+    "email": "gyanprakash2483@gmail.com"
+}
+
+###
+
+POST http://localhost:5000/api/phone-lookup
+Content-Type: application/json
+
+{
+    "phone": "+91 9876543210"
+}

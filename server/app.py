@@ -2,6 +2,11 @@ from flask import Flask, request, jsonify
 import logging
 from datetime import datetime
 import sys
+from dotenv import load_dotenv
+import os
+from email_api import email_api_blueprint
+from phone_api import phone_api_blueprint
+from flask_cors import CORS
 
 # Configure logging
 logging.basicConfig(
@@ -14,6 +19,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
+# Load environment variables from .env file
+load_dotenv()
+
+
+# Register blueprints
+app.register_blueprint(email_api_blueprint)
+app.register_blueprint(phone_api_blueprint)
 
 @app.before_request
 def log_request_info():

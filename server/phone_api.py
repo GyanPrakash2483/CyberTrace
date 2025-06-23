@@ -1,6 +1,8 @@
 import os
 import requests
 from flask import Blueprint, request, jsonify
+from webscanner import mobilescanner
+import asyncio
 
 phone_api_blueprint = Blueprint('phone_api', __name__)
 
@@ -22,4 +24,13 @@ def phone_lookup():
         response.raise_for_status()
         return jsonify(response.json())
     except requests.RequestException as e:
-        return jsonify({'error': str(e)}), 500 
+        return jsonify({'error': str(e)}), 500
+
+@phone_api_blueprint.route('/api/phone-scan', methods=['POST'])
+def phone_scan():
+    data = request.get_json()
+    phone = data.get('phone')
+    if not phone:
+        return jsonify({'error': 'Phone number is required'}), 400
+    scan_results = asyncio.run(mobilescanner.mobile_scanner(phone))
+    return jsonify({'phone': phone, 'scanResults': scan_results}) 

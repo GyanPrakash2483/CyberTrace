@@ -1,6 +1,8 @@
 import os
 import requests
 from flask import Blueprint, request, jsonify
+from webscanner import emailscanner
+import asyncio
 
 email_api_blueprint = Blueprint('email_api', __name__)
 
@@ -22,4 +24,13 @@ def email_lookup():
         response.raise_for_status()
         return jsonify(response.json())
     except requests.RequestException as e:
-        return jsonify({'error': str(e)}), 500 
+        return jsonify({'error': str(e)}), 500
+
+@email_api_blueprint.route('/api/email-scan', methods=['POST'])
+def email_scan():
+    data = request.get_json()
+    email = data.get('email')
+    if not email:
+        return jsonify({'error': 'Email is required'}), 400
+    scan_results = asyncio.run(emailscanner.email_scanner(email))
+    return jsonify({'email': email, 'scanResults': scan_results}) 

@@ -7,9 +7,13 @@ export default function TargetForm() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [username, setUsername] = useState('');
+  const [usernameResult, setUsernameResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [emailResult, setEmailResult] = useState<any>(null);
+  const [emailScanResult, setEmailScanResult] = useState<any>(null);
   const [phoneResult, setPhoneResult] = useState<any>(null);
+  const [phoneScanResult, setPhoneScanResult] = useState<any>(null);
+  const [scanLoading, setScanLoading] = useState({ email: false, phone: false });
   const [error, setError] = useState<string | null>(null);
 
   const isAnyFilled = email.trim() !== '' || phone.trim() !== '' || username.trim() !== '';
@@ -21,34 +25,72 @@ export default function TargetForm() {
     setLoading(true);
     setError(null);
     setEmailResult(null);
+    setEmailScanResult(null);
     setPhoneResult(null);
+    setPhoneScanResult(null);
+    setUsernameResult(null);
+    setScanLoading({ email: false, phone: false });
+
     try {
-      const requests: Promise<any>[] = [];
+      const promises: Promise<any>[] = [];
+
       if (email.trim()) {
-        requests.push(
+        setScanLoading(prev => ({ ...prev, email: true }));
+        promises.push(
           fetch(`${config.API_BASE_URL}/api/email-lookup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
-          }).then(res => res.json())
+          })
+            .then(res => res.json())
+            .then(res => setEmailResult(res))
         );
-      } else {
-        requests.push(Promise.resolve(null));
+        promises.push(
+          fetch(`${config.API_BASE_URL}/api/email-scan`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          })
+            .then(res => res.json())
+            .then(res => setEmailScanResult(res))
+            .finally(() => setScanLoading(prev => ({ ...prev, email: false })))
+        );
       }
       if (phone.trim()) {
-        requests.push(
+        setScanLoading(prev => ({ ...prev, phone: true }));
+        promises.push(
           fetch(`${config.API_BASE_URL}/api/phone-lookup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phone })
-          }).then(res => res.json())
+          })
+            .then(res => res.json())
+            .then(res => setPhoneResult(res))
         );
-      } else {
-        requests.push(Promise.resolve(null));
+        promises.push(
+          fetch(`${config.API_BASE_URL}/api/phone-scan`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone })
+          })
+            .then(res => res.json())
+            .then(res => setPhoneScanResult(res))
+            .finally(() => setScanLoading(prev => ({ ...prev, phone: false })))
+        );
       }
-      const [emailRes, phoneRes] = await Promise.all(requests);
-      setEmailResult(emailRes);
-      setPhoneResult(phoneRes);
+      if (username.trim()) {
+        promises.push(
+          fetch(`${config.API_BASE_URL}/api/username-lookup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username })
+          })
+            .then(res => res.json())
+            .then(res => setUsernameResult(res))
+        );
+      }
+
+      await Promise.all(promises);
     } catch (err: any) {
       setError('An error occurred while fetching results.');
     } finally {
@@ -122,8 +164,11 @@ export default function TargetForm() {
       </div>
       <Results
         emailResult={email && emailResult}
+        emailScanResult={email && emailScanResult}
         phoneResult={phone && phoneResult}
-        username={username || undefined}
+        phoneScanResult={phone && phoneScanResult}
+        usernameResult={username && usernameResult}
+        scanLoading={scanLoading}
       />
     </>
   );

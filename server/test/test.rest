@@ -13,3 +13,12 @@ Content-Type: application/json
 {
     "phone": "+91 9876543210"
 }
+
+###
+
+POST http://localhost:5000/api/sherlock
+Content-Type: application/json
+
+{
+    "usernames": ["test"]
+}

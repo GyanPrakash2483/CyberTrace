@@ -24,7 +24,7 @@ def phone_lookup():
         response.raise_for_status()
         return jsonify(response.json())
     except requests.RequestException as e:
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': str(e)}), 500 
 
 @phone_api_blueprint.route('/api/phone-scan', methods=['POST'])
 def phone_scan():

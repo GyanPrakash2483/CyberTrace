@@ -13,6 +13,7 @@ export default function TargetForm() {
   const [emailScanResult, setEmailScanResult] = useState<any>(null);
   const [phoneResult, setPhoneResult] = useState<any>(null);
   const [phoneScanResult, setPhoneScanResult] = useState<any>(null);
+  const [ghuntResult, setGhuntResult] = useState<any>(null);
   const [scanLoading, setScanLoading] = useState({ email: false, phone: false });
   const [error, setError] = useState<string | null>(null);
 
@@ -29,6 +30,7 @@ export default function TargetForm() {
     setPhoneResult(null);
     setPhoneScanResult(null);
     setUsernameResult(null);
+    setGhuntResult(null);
     setScanLoading({ email: false, phone: false });
 
     try {
@@ -54,6 +56,15 @@ export default function TargetForm() {
             .then(res => res.json())
             .then(res => setEmailScanResult(res))
             .finally(() => setScanLoading(prev => ({ ...prev, email: false })))
+        );
+        promises.push(
+          fetch(`${config.API_BASE_URL}/api/ghunt`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          })
+            .then(res => res.json())
+            .then(res => setGhuntResult(res))
         );
       }
       if (phone.trim()) {
@@ -169,6 +180,7 @@ export default function TargetForm() {
         phoneScanResult={phone && phoneScanResult}
         usernameResult={username && usernameResult}
         scanLoading={scanLoading}
+        ghuntResult={email && ghuntResult}
       />
     </>
   );

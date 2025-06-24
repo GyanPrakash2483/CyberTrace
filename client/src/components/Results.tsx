@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { CheckCircle, XCircle, Info, Mail, Phone as PhoneIcon, User as UserIcon, ShieldAlert, LoaderCircle } from 'lucide-react';
 
 function EmailDetails({ data }: { data: any }) {
@@ -84,13 +84,31 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
         )}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {results.map(([service, info]: any) => (
-          <div key={service} className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">{service}:</span>
-            <span className="text-green-400">Exists</span>
-            <CheckCircle className="text-green-400" size={18}/>
-          </div>
-        ))}
+        {results.map(([service, info]: any) => {
+          let profileLink = null;
+          if (service === 'Github' && info.profile) {
+            const match = info.profile.match(/github.com\/(.+)$/);
+            const username = match ? match[1] : 'Profile';
+            profileLink = (
+              <a
+                href={info.profile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-cyan-300 ml-2"
+              >
+                {username}
+              </a>
+            );
+          }
+          return (
+            <div key={service} className="mb-2 flex items-center gap-2">
+              <span className="font-semibold">{service}:</span>
+              <span className="text-green-400">Exists</span>
+              {profileLink}
+              <CheckCircle className="text-green-400" size={18}/>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -212,22 +230,104 @@ function UsernameDetails({ data }: { data: any }) {
   );
 }
 
-export default function Results({ emailResult, emailScanResult, phoneResult, phoneScanResult, usernameResult, scanLoading }: {
+function GhuntResults({ data }: { data: any }) {
+  if (!data) return null;
+  // Try to extract key info from the GHunt results
+  const profile = data.PROFILE_CONTAINER?.profile;
+  const photoUrl = profile?.profilePhotos?.PROFILE?.url;
+  const name = profile?.names?.PROFILE?.fullname;
+  const email = profile?.emails?.PROFILE?.value;
+  const personId = profile?.personId;
+  const coverUrl = profile?.coverPhotos?.PROFILE?.url;
+
+  return (
+    <div className="mb-6">
+      <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">
+        <Mail className="inline" size={20}/> GHunt Results
+      </h3>
+      <div className="flex flex-col md:flex-row gap-6 items-start">
+        {photoUrl && (
+          <img src={photoUrl} alt="Profile" className="w-24 h-24 rounded-full border-2 border-cyan-400 object-cover" />
+        )}
+        <div className="flex-1">
+          {name && (
+            <div className="mb-2">
+              <span className="font-semibold">Name:</span> {name}
+            </div>
+          )}
+          {email && (
+            <div className="mb-2">
+              <span className="font-semibold">Email:</span> {email}
+            </div>
+          )}
+          {personId && (
+            <div className="mb-2 flex items-center gap-2">
+              <span className="font-semibold">Google Map Reviews:</span>
+              <a
+                href={`https://www.google.com/maps/contrib/${personId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-blue-300 underline hover:text-blue-400 ml-2"
+              >
+                {`https://www.google.com/maps/contrib/${personId}`}
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+      {coverUrl && (
+        <div className="mt-4 flex flex-col items-center">
+          <span className="font-semibold mb-1">Cover Photo:</span>
+          <img src={coverUrl} alt="Cover" className="rounded border border-cyan-400 max-w-full" style={{ maxHeight: 200 }} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Results({ emailResult, emailScanResult, phoneResult, phoneScanResult, usernameResult, scanLoading, ghuntResult }: {
   emailResult?: any;
   emailScanResult?: any;
   phoneResult?: any;
   phoneScanResult?: any;
   usernameResult?: any;
   scanLoading: { email: boolean; phone: boolean };
+  ghuntResult?: any;
 }) {
-  if (!emailResult && !emailScanResult && !phoneResult && !phoneScanResult && !usernameResult) return null;
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  if (!emailResult && !emailScanResult && !phoneResult && !phoneScanResult && !usernameResult && !ghuntResult) return null;
+
+  const handlePrint = () => {
+    if (!resultsRef.current) return;
+    // Hide the print button before printing
+    const printButton = document.getElementById('print-results-btn');
+    if (printButton) printButton.style.display = 'none';
+    window.print();
+    setTimeout(() => {
+      if (printButton) printButton.style.display = '';
+    }, 500);
+  };
+
   return (
-    <div className="mt-8 w-full max-w-2xl mx-auto bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100">
-      <EmailDetails data={emailResult} />
-      <EmailScanDetails data={emailScanResult} loading={scanLoading.email} />
-      <PhoneDetails data={phoneResult} />
-      <PhoneScanDetails data={phoneScanResult} loading={scanLoading.phone} />
-      <UsernameDetails data={usernameResult} />
-    </div>
+    <>
+      <div ref={resultsRef} className="mt-8 w-full max-w-2xl mx-auto bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100 print:bg-white print:text-black print:shadow-none print:border-none">
+        <EmailDetails data={emailResult} />
+        <EmailScanDetails data={emailScanResult} loading={scanLoading.email} />
+        <GhuntResults data={ghuntResult} />
+        <PhoneDetails data={phoneResult} />
+        <PhoneScanDetails data={phoneScanResult} loading={scanLoading.phone} />
+        <UsernameDetails data={usernameResult} />
+      </div>
+      <div className="w-full max-w-2xl mx-auto flex justify-end mt-4">
+        <button
+          id="print-results-btn"
+          className="print:hidden px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-md font-semibold shadow"
+          onClick={handlePrint}
+        >
+          Download as PDF
+        </button>
+      </div>
+    </>
   );
 } 

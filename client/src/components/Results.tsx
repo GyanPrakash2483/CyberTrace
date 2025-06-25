@@ -291,15 +291,86 @@ function MaigretResults({ maigret }: { maigret: any }) {
   );
 }
 
+function generateFakeUsernames(baseUsername: string): string[] {
+  const suffixes = [
+    '1', '01', '123', '321', '111', '000', 'real', 'official', 'x', 'xx', 'xxx',
+    'the', 'not', 'fake', '0', '007', 'insta', 'ig', 'fan', 'admin',
+    '2024', '2023', '2003'
+  ];
+  const prefixes = [
+    '', '_', 'the', 'real', 'official', 'fake', 'not', 'x', 'xx', 'xxx',
+    '1', '2', '007', 'user', 'fan', 'admin', 'z', 'real_', 'only'
+  ];
+  const patterns = [
+    '{}{}', '{}{}', '{}.{}', '{}-{}', '{}{}', '_{}{}', '{}{}1',
+    '{}{}x', '{}{}z', '{}{}official', '{}.real', '{}{}_', '{}.{}', '{}{}{}',
+    '{}{}{}', '{}{}', '{}.{}.', '{}{}{}', '{}.{}{}', '{}{}', '{}{}123'
+  ];
+  const fakeUsernames = new Set<string>();
+  while (fakeUsernames.size < 50) { // 50 for UI performance
+    const prefix = Math.random() < 0.5 ? prefixes[Math.floor(Math.random() * prefixes.length)] : '';
+    const suffix = Math.random() < 0.7 ? suffixes[Math.floor(Math.random() * suffixes.length)] : '';
+    const mid = Math.random() < 0.3 ? Array.from({length: Math.floor(Math.random()*2)+1}, () => String.fromCharCode(97 + Math.floor(Math.random()*26))).join('') : '';
+    const pattern = patterns[Math.floor(Math.random() * patterns.length)];
+    let fake = '';
+    const count = (pattern.match(/\{\}/g) || []).length;
+    try {
+      if (count === 3) {
+        fake = pattern.replace('{}', prefix).replace('{}', baseUsername).replace('{}', suffix);
+      } else if (count === 2) {
+        fake = pattern.replace('{}', prefix + baseUsername).replace('{}', mid + suffix);
+      } else {
+        fake = pattern.replace('{}', prefix + baseUsername);
+      }
+    } catch {
+      continue;
+    }
+    fake = fake.replace(/\s+/g, '').toLowerCase();
+    if (fake !== baseUsername.replace(/\s+/g, '').toLowerCase()) {
+      fakeUsernames.add(fake);
+    }
+  }
+  return Array.from(fakeUsernames);
+}
+
 function UsernameDetails({ data, maigretResult }: { data: any, maigretResult?: any }) {
+  const [fakeLoading, setFakeLoading] = useState(false);
+  const [fakeProgress, setFakeProgress] = useState(0);
+  const [fakeResults, setFakeResults] = useState<any[]>([]);
+  const [fakeTotal, setFakeTotal] = useState(0);
+  const [fakeError, setFakeError] = useState<string | null>(null);
+
   if (!data || !data.results) return null;
   const results = Object.entries(data.results).filter(([, info]: any) => info.accountExist);
-  if (results.length === 0 && (!maigretResult || maigretResult.length === 0)) {
-    return (
-      <div className="mb-6 text-cyan-300">No accounts found for this username.</div>
-    );
-  }
   const username = data.username || '';
+
+  const handleFakeSearch = async () => {
+    setFakeLoading(true);
+    setFakeProgress(0);
+    setFakeResults([]);
+    setFakeError(null);
+    const fakeUsernames = generateFakeUsernames(username);
+    setFakeTotal(fakeUsernames.length);
+    const resultsArr: any[] = [];
+    for (let i = 0; i < fakeUsernames.length; i++) {
+      const fake = fakeUsernames[i];
+      try {
+        const res = await fetch(`${config.API_BASE_URL}/api/socialscan`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: fake })
+        });
+        const json = await res.json();
+        resultsArr.push({ username: fake, ...json });
+      } catch (err) {
+        resultsArr.push({ username: fake, error: 'API error' });
+      }
+      setFakeProgress(i + 1);
+      setFakeResults([...resultsArr]);
+    }
+    setFakeLoading(false);
+  };
+
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-4">
@@ -331,6 +402,73 @@ function UsernameDetails({ data, maigretResult }: { data: any, maigretResult?: a
       )}
       {/* Maigret Results Section */}
       {maigretResult && maigretResult.length > 0 && <MaigretResults maigret={maigretResult} />}
+      {/* Fake Account Search Button and Progress - moved below Maigret Results */}
+      <div className="mt-6">
+        <button
+          className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded-md font-semibold shadow disabled:opacity-50"
+          onClick={handleFakeSearch}
+          disabled={fakeLoading}
+        >
+          {fakeLoading ? 'Searching Fake Accounts...' : 'Search Fake Accounts'}
+        </button>
+        {fakeLoading && (
+          <div className="mt-4 w-full">
+            <div className="h-3 bg-cyan-900 rounded">
+              <div
+                className="h-3 bg-cyan-400 rounded transition-all"
+                style={{ width: `${(fakeProgress / (fakeTotal || 1)) * 100}%` }}
+              />
+            </div>
+            <div className="text-xs text-cyan-200 mt-1">{fakeProgress} / {fakeTotal} usernames searched</div>
+          </div>
+        )}
+        {fakeError && <div className="text-red-400 mt-2">{fakeError}</div>}
+      </div>
+      {/* Fake Results */}
+      {fakeResults.length > 0 && (
+        <div className="mt-6">
+          <h4 className="text-cyan-300 font-semibold mb-2">Fake Username Results</h4>
+          <div className="max-h-64 overflow-y-auto border border-cyan-900 rounded bg-black bg-opacity-40 p-2">
+            {fakeResults.map((res, idx) => {
+              // Support both { username: [...] } and { results: { username: [...] }, username: ... }
+              let platforms: any[] = [];
+              if (res.results && res.username && res.results[res.username]) {
+                platforms = res.results[res.username];
+              } else if (res[res.username]) {
+                platforms = res[res.username];
+              }
+              // Only show platforms where account is found AND a profile link is available
+              const foundAccounts = Array.isArray(platforms)
+                ? platforms.filter((p: any) => p.available === 'False' && p.link)
+                : [];
+              const foundCount = foundAccounts.length;
+              return (
+                <div key={res.username + idx} className="mb-4">
+                  <span className="font-mono text-cyan-200">{res.username}</span>
+                  {res.error ? (
+                    <span className="text-red-400 ml-2">{res.error}</span>
+                  ) : (
+                    <span className="ml-2 text-green-400">{foundCount} account{foundCount !== 1 ? 's' : ''} found</span>
+                  )}
+                  {/* Show found accounts with links only */}
+                  {foundCount > 0 && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      <ul className="list-disc ml-4">
+                        {foundAccounts.map((acc: any, i: number) => (
+                          <li key={acc.platform + i} className="text-xs">
+                            <span className="font-semibold text-cyan-200">{acc.platform}:</span>
+                            <a href={acc.link} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-1">{acc.link}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

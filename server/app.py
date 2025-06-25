@@ -7,6 +7,7 @@ import os
 from email_api import email_api_blueprint
 from phone_api import phone_api_blueprint
 from username_api import username_api_blueprint
+from dork_api import dork_api_blueprint
 from flask_cors import CORS
 
 # Configure logging
@@ -30,6 +31,7 @@ load_dotenv()
 app.register_blueprint(email_api_blueprint)
 app.register_blueprint(phone_api_blueprint)
 app.register_blueprint(username_api_blueprint)
+app.register_blueprint(dork_api_blueprint)
 
 @app.before_request
 def log_request_info():

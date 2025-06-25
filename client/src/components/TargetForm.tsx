@@ -2,6 +2,64 @@ import { useState } from 'react';
 import { Mail, Phone, User, Eye, LoaderCircle } from 'lucide-react';
 import Results from './Results';
 import config from '../config';
+import { useRef } from 'react';
+
+function DorkResults({ dorkResult }: { dorkResult: any }) {
+  if (!dorkResult) return null;
+  return (
+    <div className="mt-8 w-full max-w-2xl mx-auto bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100">
+      <h3 className="text-lg font-bold text-cyan-400 mb-4">Google Dorks</h3>
+      {dorkResult.email_dorks && dorkResult.email_dorks.length > 0 && (
+        <div className="mb-6">
+          <h4 className="font-semibold text-green-300 mb-2">Email Dorks</h4>
+          <div className="flex flex-wrap gap-3">
+            {dorkResult.email_dorks.map((d: any, i: number) => (
+              <div key={i} className="flex items-center gap-2 bg-cyan-950/60 border border-cyan-800 rounded-lg px-3 py-2 mb-2 shadow-sm">
+                <code className="text-xs text-cyan-200 whitespace-pre-wrap font-mono bg-transparent p-0">{d.query}</code>
+                {d.url && (
+                  <a href={d.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline text-xs font-semibold">Google</a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {dorkResult.phone_dorks && dorkResult.phone_dorks.length > 0 && (
+        <div className="mb-6">
+          <h4 className="font-semibold text-green-300 mb-2">Phone Dorks</h4>
+          <div className="flex flex-wrap gap-3">
+            {dorkResult.phone_dorks.map((d: any, i: number) => (
+              <div key={i} className="flex items-center gap-2 bg-cyan-950/60 border border-cyan-800 rounded-lg px-3 py-2 mb-2 shadow-sm">
+                <code className="text-xs text-cyan-200 whitespace-pre-wrap font-mono bg-transparent p-0">{d.query}</code>
+                {d.url && (
+                  <a href={d.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline text-xs font-semibold">Google</a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {dorkResult.username_dorks && dorkResult.username_dorks.length > 0 && (
+        <div className="mb-6">
+          <h4 className="font-semibold text-green-300 mb-2">Username Dorks</h4>
+          <div className="flex flex-wrap gap-3">
+            {dorkResult.username_dorks.map((d: any, i: number) => (
+              <div key={i} className="flex items-center gap-2 bg-cyan-950/60 border border-cyan-800 rounded-lg px-3 py-2 mb-2 shadow-sm">
+                <code className="text-xs text-cyan-200 whitespace-pre-wrap font-mono bg-transparent p-0">{d.query}</code>
+                {d.url && (
+                  <a href={d.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline text-xs font-semibold">Google</a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {(!dorkResult.email_dorks?.length && !dorkResult.phone_dorks?.length && !dorkResult.username_dorks?.length) && (
+        <div className="text-gray-400">No dorks generated for the given input.</div>
+      )}
+    </div>
+  );
+}
 
 export default function TargetForm() {
   const [email, setEmail] = useState('');
@@ -17,6 +75,9 @@ export default function TargetForm() {
   const [maigretResult, setMaigretResult] = useState<any>(null);
   const [scanLoading, setScanLoading] = useState({ email: false, phone: false });
   const [error, setError] = useState<string | null>(null);
+  const [dorkResult, setDorkResult] = useState<any>(null);
+  const [dorkLoading, setDorkLoading] = useState(false);
+  const [dorkError, setDorkError] = useState<string | null>(null);
 
   const isAnyFilled = email.trim() !== '' || phone.trim() !== '' || username.trim() !== '';
   const isButtonDisabled = !isAnyFilled || loading;
@@ -34,6 +95,9 @@ export default function TargetForm() {
     setGhuntResult(null);
     setMaigretResult(null);
     setScanLoading({ email: false, phone: false });
+    setDorkResult(null);
+    setDorkError(null);
+    setDorkLoading(true);
 
     try {
       const promises: Promise<any>[] = [];
@@ -112,11 +176,27 @@ export default function TargetForm() {
         );
       }
 
+      // Dork lookup request
+      promises.push(
+        fetch(`${config.API_BASE_URL}/api/dork-lookup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, phone, username })
+        })
+          .then(res => res.json().then(data => ({ ok: res.ok, data })))
+          .then(({ ok, data }) => {
+            if (!ok) throw new Error(data.error || 'Failed to fetch dorks');
+            setDorkResult(data);
+          })
+          .catch(err => setDorkError(err.message || 'Failed to fetch dorks'))
+      );
+
       await Promise.all(promises);
     } catch (err: any) {
       setError('An error occurred while fetching results.');
     } finally {
       setLoading(false);
+      setDorkLoading(false);
     }
   };
 
@@ -183,6 +263,7 @@ export default function TargetForm() {
           </div>
         </form>
         {error && <div className="mt-4 text-red-400 text-center">{error}</div>}
+        {dorkError && <div className="mt-2 text-red-400 text-center">{dorkError}</div>}
       </div>
       <Results
         emailResult={email && emailResult}
@@ -194,6 +275,7 @@ export default function TargetForm() {
         ghuntResult={email && ghuntResult}
         maigretResult={username && maigretResult}
       />
+      <DorkResults dorkResult={dorkResult} />
     </>
   );
 }

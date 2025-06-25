@@ -44,7 +44,8 @@ def maigret_scan():
             'livemaster',
             '3dd.ru',
             'guru.com',
-            'adultfriendfinder.com'
+            'adultfriendfinder.com',
+            '3ddd.ru'
         ]
         # Run the maigret command to generate the JSON report
         subprocess.run([
@@ -60,5 +61,31 @@ def maigret_scan():
             if not any(exclude in url for exclude in exclude_domains):
                 filtered_profiles.append({'site': site, 'url': url})
         return jsonify({'username': username, 'profiles': filtered_profiles})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@username_api_blueprint.route('/api/socialscan', methods=['POST'])
+def socialscan():
+    data = request.get_json()
+    username = data.get('username')
+    if not username:
+        return jsonify({'error': 'Username is required'}), 400
+    report_path = os.path.join('reports', 'sscan.json')
+    try:
+        # Run the socialscan command
+        result = subprocess.run([
+            'socialscan', '--json', report_path, username
+        ], capture_output=True, text=True, check=False)
+        if result.returncode != 0:
+            return jsonify({'error': f'socialscan failed: {result.stderr}'}), 500
+        # Read and parse the results
+        if not os.path.exists(report_path):
+            return jsonify({'error': 'Result file not found'}), 500
+        with open(report_path, 'r', encoding='utf-8') as f:
+            try:
+                scan_results = json.load(f)
+            except Exception as e:
+                return jsonify({'error': f'Failed to parse JSON: {str(e)}'}), 500
+        return jsonify({'username': username, 'results': scan_results})
     except Exception as e:
         return jsonify({'error': str(e)}), 500

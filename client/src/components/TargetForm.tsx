@@ -79,8 +79,16 @@ export default function TargetForm() {
   const [dorkLoading, setDorkLoading] = useState(false);
   const [dorkError, setDorkError] = useState<string | null>(null);
 
+  // Voter DB Search state
+  const [voterName, setVoterName] = useState('');
+  const [voterDistrict, setVoterDistrict] = useState('');
+  const [voterLoading, setVoterLoading] = useState(false);
+  const [voterError, setVoterError] = useState<string | null>(null);
+  const [voterResults, setVoterResults] = useState<any[]>([]);
+
   const isAnyFilled = email.trim() !== '' || phone.trim() !== '' || username.trim() !== '';
   const isButtonDisabled = !isAnyFilled || loading;
+  const isVoterButtonDisabled = !voterName.trim() && !voterDistrict.trim();
 
   const handleClick = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -200,6 +208,34 @@ export default function TargetForm() {
     }
   };
 
+  const handleVoterSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isVoterButtonDisabled) return;
+    setVoterLoading(true);
+    setVoterError(null);
+    setVoterResults([]);
+    try {
+      const res = await fetch(`${config.API_BASE_URL}/api/voter-db-search`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...(voterName.trim() && { name: voterName.trim() }),
+          ...(voterDistrict.trim() && { district: voterDistrict.trim() })
+        })
+      });
+      const json = await res.json();
+      if (json.error) {
+        setVoterError(json.error);
+      } else {
+        setVoterResults(json.results || []);
+      }
+    } catch (err) {
+      setVoterError('An error occurred while searching the voter database.');
+    } finally {
+      setVoterLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-10 py-8 w-full max-w-2xl mx-auto mt-4">
@@ -276,6 +312,75 @@ export default function TargetForm() {
         maigretResult={username && maigretResult}
       />
       <DorkResults dorkResult={dorkResult} />
+      {/* Voter DB Search Form */}
+      <div className="mt-10 w-full max-w-2xl mx-auto bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100">
+        <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Voter Database Search</h3>
+        <form onSubmit={handleVoterSearch} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-name">Name</label>
+              <input
+                id="voter-name"
+                type="text"
+                placeholder="Name"
+                className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+                value={voterName}
+                onChange={e => setVoterName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-district">District</label>
+              <input
+                id="voter-district"
+                type="text"
+                placeholder="District"
+                className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+                value={voterDistrict}
+                onChange={e => setVoterDistrict(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isVoterButtonDisabled || voterLoading}
+              className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-semibold text-lg text-black bg-gradient-to-r from-red-400 via-cyan-400 to-blue-400 hover:from-red-500 hover:to-blue-500 transition ${isVoterButtonDisabled || voterLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {voterLoading && <LoaderCircle className="animate-spin" size={22} />}
+              Search Voter Database
+            </button>
+          </div>
+          {voterError && <div className="mt-4 text-red-400 text-center">{voterError}</div>}
+        </form>
+        {/* Results Table */}
+        {voterResults.length === 0 && !voterLoading && !voterError && (voterName.trim() || voterDistrict.trim()) && (
+          <div className="mt-6 text-center text-cyan-300">No records found</div>
+        )}
+        {voterResults.length > 0 && (
+          <div className="mt-6 overflow-x-auto">
+            <table className="min-w-full text-sm text-left border border-cyan-900 rounded bg-black bg-opacity-60">
+              <thead>
+                <tr className="bg-cyan-900 text-cyan-200">
+                  <th className="px-4 py-2">Name</th>
+                  <th className="px-4 py-2">District</th>
+                  <th className="px-4 py-2">ULB</th>
+                  <th className="px-4 py-2">Ward</th>
+                </tr>
+              </thead>
+              <tbody>
+                {voterResults.map((row, i) => (
+                  <tr key={i} className="border-t border-cyan-900">
+                    <td className="px-4 py-2">{row.name}</td>
+                    <td className="px-4 py-2">{row.district}</td>
+                    <td className="px-4 py-2">{row.ULB}</td>
+                    <td className="px-4 py-2">{row.ward}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </>
   );
 }

@@ -89,3 +89,35 @@ def socialscan():
         return jsonify({'username': username, 'results': scan_results})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+@username_api_blueprint.route('/api/voter-db-search', methods=['POST'])
+def voter_db_search():
+    data = request.get_json()
+    name = data.get('name')
+    district = data.get('district')
+    ulb = data.get('ULB')
+    ward = data.get('ward')
+    # At least one parameter is required
+    if not any([name, district, ulb, ward]):
+        return jsonify({'error': 'At least one search parameter is required.'}), 400
+    # Load voterdb.json
+    db_path = os.path.join(os.path.dirname(__file__), 'data', 'voterdb.json')
+    try:
+        with open(db_path, 'r', encoding='utf-8') as f:
+            db = json.load(f)
+        records = db.get('data', [])
+        # Filter records where all provided parameters match (case-insensitive)
+        def match(record):
+            if name and record.get('name', '').lower() != name.lower():
+                return False
+            if district and record.get('district', '').lower() != district.lower():
+                return False
+            if ulb and record.get('ULB', '').lower() != ulb.lower():
+                return False
+            if ward and record.get('ward', '').lower() != ward.lower():
+                return False
+            return True
+        results = [r for r in records if match(r)]
+        return jsonify({'results': results})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

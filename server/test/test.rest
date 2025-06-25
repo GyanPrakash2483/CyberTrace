@@ -22,3 +22,12 @@ Content-Type: application/json
 {
     "usernames": ["test"]
 }
+
+###
+
+POST http://localhost:5000/api/maigret
+Content-Type: application/json
+
+{
+    "username": "GyanPrakash2483"
+}

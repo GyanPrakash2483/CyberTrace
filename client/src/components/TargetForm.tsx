@@ -14,6 +14,7 @@ export default function TargetForm() {
   const [phoneResult, setPhoneResult] = useState<any>(null);
   const [phoneScanResult, setPhoneScanResult] = useState<any>(null);
   const [ghuntResult, setGhuntResult] = useState<any>(null);
+  const [maigretResult, setMaigretResult] = useState<any>(null);
   const [scanLoading, setScanLoading] = useState({ email: false, phone: false });
   const [error, setError] = useState<string | null>(null);
 
@@ -31,6 +32,7 @@ export default function TargetForm() {
     setPhoneScanResult(null);
     setUsernameResult(null);
     setGhuntResult(null);
+    setMaigretResult(null);
     setScanLoading({ email: false, phone: false });
 
     try {
@@ -98,6 +100,15 @@ export default function TargetForm() {
           })
             .then(res => res.json())
             .then(res => setUsernameResult(res))
+        );
+        promises.push(
+          fetch(`${config.API_BASE_URL}/api/maigret`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username })
+          })
+            .then(res => res.json())
+            .then(res => setMaigretResult(res.profiles))
         );
       }
 
@@ -181,7 +192,8 @@ export default function TargetForm() {
         usernameResult={username && usernameResult}
         scanLoading={scanLoading}
         ghuntResult={email && ghuntResult}
+        maigretResult={username && maigretResult}
       />
     </>
   );
-} 
+}

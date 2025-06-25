@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
-import { CheckCircle, XCircle, Info, Mail, Phone as PhoneIcon, User as UserIcon, ShieldAlert, LoaderCircle } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { CheckCircle, XCircle, Info, Mail, Phone as PhoneIcon, User as UserIcon, ShieldAlert, LoaderCircle, Search } from 'lucide-react';
+import config from '../config';
 
 function EmailDetails({ data }: { data: any }) {
   if (!data) return null;
@@ -16,7 +17,7 @@ function EmailDetails({ data }: { data: any }) {
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Status:</span>
             <span className={d.status === 'valid' ? 'text-green-400' : 'text-red-400'}>{d.status}</span>
-            {d.status === 'valid' ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>} 
+            {d.status === 'valid' ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>}
           </div>
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Result:</span>
@@ -128,7 +129,7 @@ function PhoneDetails({ data }: { data: any }) {
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Valid:</span>
             <span className={data.valid ? 'text-green-400' : 'text-red-400'}>{data.valid ? 'Yes' : 'No'}</span>
-            {data.valid ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>} 
+            {data.valid ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>}
           </div>
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Carrier:</span>
@@ -190,46 +191,6 @@ function PhoneScanDetails({ data, loading }: { data: any, loading: boolean }) {
   );
 }
 
-function UsernameDetails({ data }: { data: any }) {
-  if (!data || !data.results) return null;
-  const results = Object.entries(data.results).filter(([, info]: any) => info.accountExist);
-  if (results.length === 0) {
-    return (
-      <div className="mb-6 text-cyan-300">No accounts found for this username.</div>
-    );
-  }
-  const username = data.username || '';
-  return (
-    <div className="mb-6">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2"><UserIcon className="inline" size={20}/> Username Account Existence Scan</h3>
-        {username && (
-          <a
-            href={`https://www.facebook.com/search/top?q=${encodeURIComponent(username)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-blue-300 underline hover:text-blue-400"
-          >
-            Top results on facebook
-          </a>
-        )}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {results.map(([service, info]: any) => (
-          <div key={service} className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">{service}:</span>
-            <span className="text-green-400">Exists</span>
-            {info.profile && (
-              <a href={info.profile} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-2">Profile</a>
-            )}
-            <CheckCircle className="text-green-400" size={18}/>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function GhuntResults({ data }: { data: any }) {
   if (!data) return null;
   // Try to extract key info from the GHunt results
@@ -258,10 +219,10 @@ function GhuntResults({ data }: { data: any }) {
           {email && (
             <div className="mb-2">
               <span className="font-semibold">Email:</span> {email}
-            </div>
+          </div>
           )}
           {personId && (
-            <div className="mb-2 flex items-center gap-2">
+          <div className="mb-2 flex items-center gap-2">
               <span className="font-semibold">Google Map Reviews:</span>
               <a
                 href={`https://www.google.com/maps/contrib/${personId}`}
@@ -271,7 +232,7 @@ function GhuntResults({ data }: { data: any }) {
               >
                 {`https://www.google.com/maps/contrib/${personId}`}
               </a>
-            </div>
+          </div>
           )}
         </div>
       </div>
@@ -285,7 +246,74 @@ function GhuntResults({ data }: { data: any }) {
   );
 }
 
-export default function Results({ emailResult, emailScanResult, phoneResult, phoneScanResult, usernameResult, scanLoading, ghuntResult }: {
+function MaigretResults({ maigret }: { maigret: any }) {
+  if (!maigret || !Array.isArray(maigret) || maigret.length === 0) return null;
+  return (
+    <div className="mb-6">
+      <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2 mb-4">
+        <ShieldAlert className="inline" size={20}/> Maigret Results
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {maigret.map((profile: { site: string, url: string }) => (
+          <div key={profile.site + profile.url} className="bg-black bg-opacity-60 rounded p-3 flex flex-col gap-1 border border-cyan-900">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-semibold text-cyan-300">{profile.site}</span>
+            </div>
+            <a href={profile.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline break-all mb-1">
+              {profile.url}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function UsernameDetails({ data, maigretResult }: { data: any, maigretResult?: any }) {
+  if (!data || !data.results) return null;
+  const results = Object.entries(data.results).filter(([, info]: any) => info.accountExist);
+  if (results.length === 0 && (!maigretResult || maigretResult.length === 0)) {
+    return (
+      <div className="mb-6 text-cyan-300">No accounts found for this username.</div>
+    );
+  }
+  const username = data.username || '';
+  return (
+    <div className="mb-6">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2"><UserIcon className="inline" size={20}/> Username Account Existence Scan</h3>
+        {username && (
+          <a
+            href={`https://www.facebook.com/search/top?q=${encodeURIComponent(username)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-blue-300 underline hover:text-blue-400"
+          >
+            Top results on facebook
+          </a>
+        )}
+      </div>
+      {results.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {results.map(([service, info]: [string, any]) => (
+            <div key={service} className="mb-2 flex items-center gap-2">
+              <span className="font-semibold">{service}:</span>
+              <span className="text-green-400">Exists</span>
+              {info.profile && (
+                <a href={info.profile} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-2">Profile</a>
+              )}
+              <CheckCircle className="text-green-400" size={18}/>
+            </div>
+          ))}
+        </div>
+      )}
+      {/* Maigret Results Section */}
+      {maigretResult && maigretResult.length > 0 && <MaigretResults maigret={maigretResult} />}
+    </div>
+  );
+}
+
+export default function Results({ emailResult, emailScanResult, phoneResult, phoneScanResult, usernameResult, scanLoading, ghuntResult, maigretResult }: {
   emailResult?: any;
   emailScanResult?: any;
   phoneResult?: any;
@@ -293,10 +321,11 @@ export default function Results({ emailResult, emailScanResult, phoneResult, pho
   usernameResult?: any;
   scanLoading: { email: boolean; phone: boolean };
   ghuntResult?: any;
+  maigretResult?: any;
 }) {
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  if (!emailResult && !emailScanResult && !phoneResult && !phoneScanResult && !usernameResult && !ghuntResult) return null;
+  if (!emailResult && !emailScanResult && !phoneResult && !phoneScanResult && !usernameResult && !ghuntResult && !maigretResult) return null;
 
   const handlePrint = () => {
     if (!resultsRef.current) return;
@@ -317,7 +346,8 @@ export default function Results({ emailResult, emailScanResult, phoneResult, pho
         <GhuntResults data={ghuntResult} />
         <PhoneDetails data={phoneResult} />
         <PhoneScanDetails data={phoneScanResult} loading={scanLoading.phone} />
-        <UsernameDetails data={usernameResult} />
+        {usernameResult && <UsernameDetails data={usernameResult} maigretResult={maigretResult} />}
+        {!usernameResult && maigretResult && maigretResult.length > 0 && <MaigretResults maigret={maigretResult} />}
       </div>
       <div className="w-full max-w-2xl mx-auto flex justify-end mt-4">
         <button
@@ -330,4 +360,4 @@ export default function Results({ emailResult, emailScanResult, phoneResult, pho
       </div>
     </>
   );
-} 
+}

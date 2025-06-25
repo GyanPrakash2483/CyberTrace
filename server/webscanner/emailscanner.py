@@ -1,5 +1,5 @@
 import requests
-from webscanner.services import amazon, flipkart, github, instagram, reddit, twitter
+from webscanner.services import amazon, flipkart, github, instagram, reddit, twitter, quora
 
 def getGithubProfile(email: str):
     try:
@@ -28,6 +28,7 @@ async def email_scanner(email: str):
     instagram_account_exist = await instagram.isEmailValid(email)
     reddit_account_exist = await reddit.isEmailValid(email)
     twitter_account_exist = await twitter.isEmailValid(email)
+    quora_account_exist = await quora.isEmailValid(email)
 
     return {
         'Amazon': {
@@ -48,5 +49,8 @@ async def email_scanner(email: str):
         },
         'Twitter': {
             'accountExist': twitter_account_exist
+        },
+        'Quora': {
+            'accountExist': quora_account_exist
         }
     }

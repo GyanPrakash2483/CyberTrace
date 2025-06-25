@@ -1,7 +1,8 @@
 import asyncio
 from playwright.async_api import async_playwright
 
-async def check_quora_email(email):
+async def isEmailValid(email):
+    print(f"[quora]: Querying email: {email}")
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
@@ -21,13 +22,17 @@ async def check_quora_email(email):
         # Check for error message
         error_text = "No account found for this email. Retry, or Sign up for Quora."
         if await page.locator(f"text={error_text}").is_visible():
-            print(f"[❌] {email} is NOT registered on Quora.")
+            await browser.close()
+            return False
         else:
-            print(f"[✅] {email} appears to be registered on Quora.")
+            await browser.close()
+            return True
 
-        await browser.close()
 
-# Run the checker
-if _name_ == "_main_":
-    target_email = input("Enter email to check on Quora: ").strip()
-    asyncio.run(check_quora_email(target_email))    
+async def isUsernameValid(username: str):
+    print(f"[quora]: Querying username: {username}")
+    return False
+
+async def isPhoneValid(phone: str):
+    print(f"[quora]: Querying phone: {phone}")
+    return False

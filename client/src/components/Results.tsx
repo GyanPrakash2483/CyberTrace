@@ -1,10 +1,60 @@
 import { useRef, useState } from 'react';
 import { CheckCircle, XCircle, Info, Mail, Phone as PhoneIcon, User as UserIcon, ShieldAlert, LoaderCircle, Search } from 'lucide-react';
 import config from '../config';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 function EmailDetails({ data }: { data: any }) {
   if (!data) return null;
   const d = data.data || {};
+  // Helper to check if email is quora
+  const isQuora = d.email && d.email.toLowerCase().endsWith('@quora.com');
+
+  // SweetAlert handler
+  const handleQuoraSearch = () => {
+    Swal.fire({
+      title: 'Search Quora',
+      input: 'text',
+      inputLabel: 'Enter name to search on Quora',
+      inputPlaceholder: 'Name',
+      showCancelButton: true,
+      confirmButtonText: 'Search Quora',
+      cancelButtonText: 'Cancel',
+      showDenyButton: true,
+      denyButtonText: 'Search Profile',
+      background: '#222',
+      color: '#fff',
+      customClass: {
+        popup: 'swal2-dark',
+        confirmButton: 'bg-red-600',
+        denyButton: 'bg-cyan-700',
+        cancelButton: 'bg-gray-700',
+        input: 'bg-gray-900 text-white',
+      },
+      preConfirm: (name) => {
+        if (!name) {
+          Swal.showValidationMessage('Please enter a name');
+        }
+        return name;
+      },
+      preDeny: () => {
+        // Always return the value of the input field
+        const input = (Swal.getInput() as HTMLInputElement);
+        if (!input.value) {
+          Swal.showValidationMessage('Please enter a name');
+          return false;
+        }
+        return input.value;
+      }
+    }).then((result) => {
+      // Use result.value for both confirm and deny
+      if (result.isConfirmed && result.value) {
+        window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}`, '_blank');
+      } else if (result.isDenied && result.value) {
+        window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}&type=profile`, '_blank');
+      }
+    });
+  };
   return (
     <div className="mb-6">
       <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2"><Mail className="inline" size={20}/> Email Details (Hunter API)</h3>
@@ -13,6 +63,16 @@ function EmailDetails({ data }: { data: any }) {
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Email:</span>
             <span>{d.email}</span>
+            {/* Quora search button */}
+            {isQuora && (
+              <button
+                className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
+                style={{ fontSize: '0.75rem', lineHeight: 1, verticalAlign: 'middle' }}
+                onClick={handleQuoraSearch}
+              >
+                Search for accounts
+              </button>
+            )}
           </div>
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Status:</span>
@@ -69,6 +129,53 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
     );
   }
   const email = data.email || '';
+
+  // SweetAlert handler for Quora
+  const handleQuoraSearch = () => {
+    Swal.fire({
+      title: 'Search Quora',
+      input: 'text',
+      inputLabel: 'Enter name to search on Quora',
+      inputPlaceholder: 'Name',
+      showCancelButton: true,
+      confirmButtonText: 'Search Quora',
+      cancelButtonText: 'Cancel',
+      showDenyButton: true,
+      denyButtonText: 'Search Profile',
+      background: '#222',
+      color: '#fff',
+      customClass: {
+        popup: 'swal2-dark',
+        confirmButton: 'bg-red-600',
+        denyButton: 'bg-cyan-700',
+        cancelButton: 'bg-gray-700',
+        input: 'bg-gray-900 text-white',
+      },
+      preConfirm: (name) => {
+        if (!name) {
+          Swal.showValidationMessage('Please enter a name');
+        }
+        return name;
+      },
+      preDeny: () => {
+        // Always return the value of the input field
+        const input = (Swal.getInput() as HTMLInputElement);
+        if (!input.value) {
+          Swal.showValidationMessage('Please enter a name');
+          return false;
+        }
+        return input.value;
+      }
+    }).then((result) => {
+      // Use result.value for both confirm and deny
+      if (result.isConfirmed && result.value) {
+        window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}`, '_blank');
+      } else if (result.isDenied && result.value) {
+        window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}&type=profile`, '_blank');
+      }
+    });
+  };
+
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-4">
@@ -107,6 +214,16 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
               <span className="text-green-400">Exists</span>
               {profileLink}
               <CheckCircle className="text-green-400" size={18}/>
+              {/* Quora search button for Quora Exists */}
+              {service === 'Quora' && (
+                <button
+                  className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
+                  style={{ fontSize: '0.75rem', lineHeight: 1, verticalAlign: 'middle' }}
+                  onClick={handleQuoraSearch}
+                >
+                  Search for accounts
+                </button>
+              )}
             </div>
           );
         })}

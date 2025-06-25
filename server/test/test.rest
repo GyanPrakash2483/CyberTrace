@@ -31,3 +31,23 @@ Content-Type: application/json
 {
     "username": "GyanPrakash2483"
 }
+
+###
+
+POST http://localhost:5000/api/dork-lookup
+Content-Type: application/json
+
+{
+    "phone": "8956487968",
+    "email": "gyan@email.com",
+    "username": "gyanprakash____"
+}
+
+###
+
+POST http://localhost:5000/api/socialscan
+Content-Type: application/json
+
+{
+    "username": "Dream"
+}

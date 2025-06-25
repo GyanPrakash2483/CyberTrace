@@ -42,6 +42,9 @@ def maigret_scan():
             'bikeradar',
             'op.gg',
             'livemaster',
+            '3dd.ru',
+            'guru.com',
+            'adultfriendfinder.com'
         ]
         # Run the maigret command to generate the JSON report
         subprocess.run([

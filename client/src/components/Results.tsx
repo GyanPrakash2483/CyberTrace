@@ -116,6 +116,7 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
 }
 
 function PhoneDetails({ data }: { data: any }) {
+  const [showIframe, setShowIframe] = useState(false);
   if (!data) return null;
   return (
     <div className="mb-6">
@@ -129,7 +130,7 @@ function PhoneDetails({ data }: { data: any }) {
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Valid:</span>
             <span className={data.valid ? 'text-green-400' : 'text-red-400'}>{data.valid ? 'Yes' : 'No'}</span>
-            {data.valid ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>}
+            {data.valid ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>} 
           </div>
           <div className="mb-2 flex items-center gap-2">
             <span className="font-semibold">Carrier:</span>
@@ -155,6 +156,27 @@ function PhoneDetails({ data }: { data: any }) {
           </div>
         </div>
       </div>
+      {data.number && (
+        <div className="w-full flex flex-col items-center mt-6">
+          <button
+            className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-md font-semibold shadow"
+            onClick={() => setShowIframe((prev) => !prev)}
+          >
+            {showIframe ? 'Hide Name Search' : 'Search for Name'}
+          </button>
+          {showIframe && (
+            <div className="mt-4 w-full flex justify-center">
+              <iframe
+                src={`https://naam.ai/${encodeURIComponent(data.number)}`}
+                title="Naam AI Search"
+                width="700"
+                height="700"
+                style={{ border: '1px solid #0ff', borderRadius: '8px', background: 'white', display: 'block' }}
+              />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

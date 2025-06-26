@@ -1,22 +1,47 @@
 {
     "data": [
-        {
-            "name": "Person 2",
-            "district": "District 1",
-            "ULB": "ULB 1",
-            "ward": "Ward 1"
-        },
-        {
-            "name": "Person 2",
-            "district": "District 2",
-            "ULB": "ULB 2",
-            "ward": "Ward 2"
-        },
-        {
-            "name": "Person 3",
-            "district": "District 3",
-            "ULB": "ULB 3",
-            "ward": "Ward 3"
-        }
+        {"name": "Angad Singh", "district": "Kushinagar", "ULB": "ULB 1", "ward": "Ward 1"},
+        {"name": "Ajaypal Singh", "district": "Rampur", "ULB": "ULB 2", "ward": "Ward 2"},
+        {"name": "Sourav", "district": "Kushinagar", "ULB": "ULB 3", "ward": "Ward 3"},
+        {"name": "Shivswaroop", "district": "Rampur", "ULB": "ULB 4", "ward": "Ward 4"},
+        {"name": "Aakash", "district": "Kushinagar", "ULB": "ULB 5", "ward": "Ward 5"},
+        {"name": "Ram Kumar", "district": "Rampur", "ULB": "ULB 6", "ward": "Ward 6"},
+        {"name": "Omnarayan", "district": "Kushinagar", "ULB": "ULB 7", "ward": "Ward 7"},
+        {"name": "Pushpkala", "district": "Rampur", "ULB": "ULB 8", "ward": "Ward 8"},
+        {"name": "Rameshwar Dayal", "district": "Kushinagar", "ULB": "ULB 9", "ward": "Ward 9"},
+        {"name": "Baburam", "district": "Rampur", "ULB": "ULB 10", "ward": "Ward 10"},
+        {"name": "Khachermal", "district": "Kushinagar", "ULB": "ULB 11", "ward": "Ward 11"},
+        {"name": "Virendra Prakash", "district": "Rampur", "ULB": "ULB 12", "ward": "Ward 12"},
+        {"name": "Banwari Lal", "district": "Kushinagar", "ULB": "ULB 13", "ward": "Ward 13"},
+        {"name": "Angadbaj", "district": "Rampur", "ULB": "ULB 14", "ward": "Ward 14"},
+        {"name": "Sahab Singh", "district": "Kushinagar", "ULB": "ULB 15", "ward": "Ward 15"},
+        {"name": "Shashibala", "district": "Rampur", "ULB": "ULB 16", "ward": "Ward 16"},
+        {"name": "Munni Devi", "district": "Kushinagar", "ULB": "ULB 17", "ward": "Ward 17"},
+        {"name": "Surendra Prasad", "district": "Rampur", "ULB": "ULB 18", "ward": "Ward 18"},
+        {"name": "Heeren Kumar", "district": "Kushinagar", "ULB": "ULB 19", "ward": "Ward 19"},
+        {"name": "Rajni Bala", "district": "Rampur", "ULB": "ULB 20", "ward": "Ward 20"},
+        {"name": "Anil Kumar", "district": "Kushinagar", "ULB": "ULB 21", "ward": "Ward 21"},
+        {"name": "Dharmendra", "district": "Rampur", "ULB": "ULB 22", "ward": "Ward 22"},
+        {"name": "Asha Devi", "district": "Kushinagar", "ULB": "ULB 23", "ward": "Ward 23"},
+        {"name": "Asha", "district": "Rampur", "ULB": "ULB 24", "ward": "Ward 24"},
+        {"name": "Hemlata", "district": "Kushinagar", "ULB": "ULB 25", "ward": "Ward 25"},
+        {"name": "Kishanlal", "district": "Rampur", "ULB": "ULB 26", "ward": "Ward 26"},
+        {"name": "Santosh Kumar", "district": "Kushinagar", "ULB": "ULB 27", "ward": "Ward 27"},
+        {"name": "Dharmendra Kumar", "district": "Rampur", "ULB": "ULB 28", "ward": "Ward 28"},
+        {"name": "Manoj Kumar", "district": "Kushinagar", "ULB": "ULB 29", "ward": "Ward 29"},
+        {"name": "Vanwari Lal", "district": "Rampur", "ULB": "ULB 30", "ward": "Ward 30"},
+        {"name": "Sheela", "district": "Kushinagar", "ULB": "ULB 31", "ward": "Ward 31"},
+        {"name": "Deepak Kumar", "district": "Rampur", "ULB": "ULB 32", "ward": "Ward 32"},
+        {"name": "Sanu", "district": "Kushinagar", "ULB": "ULB 33", "ward": "Ward 33"},
+        {"name": "Deepika", "district": "Rampur", "ULB": "ULB 34", "ward": "Ward 34"},
+        {"name": "Nitin Kumar", "district": "Kushinagar", "ULB": "ULB 35", "ward": "Ward 35"},
+        {"name": "Mamt", "district": "Rampur", "ULB": "ULB 36", "ward": "Ward 36"},
+        {"name": "Singh", "district": "Kushinagar", "ULB": "ULB 37", "ward": "Ward 37"},
+        {"name": "Ajaypal", "district": "Rampur", "ULB": "ULB 38", "ward": "Ward 38"},
+        {"name": "Deep Gupta", "district": "Kushinagar", "ULB": "ULB 39", "ward": "Ward 39"},
+        {"name": "Sushila Devi", "district": "Rampur", "ULB": "ULB 40", "ward": "Ward 40"},
+        {"name": "Anita Devi", "district": "Kushinagar", "ULB": "ULB 41", "ward": "Ward 41"},
+        {"name": "Kunal", "district": "Rampur", "ULB": "ULB 42", "ward": "Ward 42"},
+        {"name": "Ajay Kumar", "district": "Kushinagar", "ULB": "ULB 43", "ward": "Ward 43"}
     ]
 }

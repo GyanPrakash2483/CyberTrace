@@ -4,7 +4,7 @@ import config from '../config';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-function EmailDetails({ data }: { data: any }) {
+export function EmailDetails({ data }: { data: any }) {
   if (!data) return null;
   const d = data.data || {};
   // Helper to check if email is quora
@@ -232,7 +232,7 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
   );
 }
 
-function PhoneDetails({ data }: { data: any }) {
+export function PhoneDetails({ data }: { data: any }) {
   const [showIframe, setShowIframe] = useState(false);
   if (!data) return null;
   return (
@@ -330,7 +330,7 @@ function PhoneScanDetails({ data, loading }: { data: any, loading: boolean }) {
   );
 }
 
-function GhuntResults({ data }: { data: any }) {
+export function GhuntResults({ data }: { data: any }) {
   if (!data) return null;
   // Try to extract key info from the GHunt results
   const profile = data.PROFILE_CONTAINER?.profile;

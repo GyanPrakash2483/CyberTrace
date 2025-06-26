@@ -31,39 +31,33 @@ custom_dork_templates = {
     "Facebook": [
         'site:facebook.com intext:"{email}"',
         'site:facebook.com intext:"{phone}"',
-        'site:facebook.com inurl:"profile.php?id="',
-        'site:facebook.com intext:"contact" | intext:"number"',
-        'site:facebook.com intext:"@gmail.com" | intext:"@yahoo.com" | intext:"@hotmail.com"'
     ],
     "Twitter": [
         'site:twitter.com intext:"{email}"',
         'site:twitter.com intext:"{phone}"',
-        'site:twitter.com intext:"DM me at"',
-        'site:twitter.com intext:"reach me on"',
+        'site:twitter.com intext:"DM me at {email}"| intext:"DM me at {phone}"',
+        'site:twitter.com intext:"reach me on {email}" | intext:"reach me on {phone}"',
         'site:twitter.com/{username}'
     ],
     "LinkedIn": [
         'site:linkedin.com intext:"{email}" | intext:"{phone}"',
         'site:linkedin.com inurl:"in/" intext:"{phone}"',
-        'site:linkedin.com intitle:"* - LinkedIn"',
-        'site:linkedin.com intext:"contact" OR "call me" OR "phone"',
-        'site:linkedin.com/in/{username}'
+        'site:linkedin.com {username}'
     ],
     "Amazon": [
-        'site:amazon.com intext:"seller contact"',
-        'site:amazon.com intext:"customer service" intext:"phone"',
-        'site:amazon.com inurl:"/gp/help/contact"',
+        'site:amazon.com intext:"{phone}"',
+        'site:amazon.com intext:"customer service" intext:"{phone}"',
         'site:amazon.com intext:"@amazon.com" filetype:csv'
     ],
     "GitHub": [
         'site:github.com intext:"{email}"',
         'site:github.com intext:"{phone}"',
-        'site:github.com intext:"contact me at"',
+        'site:github.com intext:"contact me at{email}" | intext:"contact me at {phone}"',
         'site:github.com/{username}'
     ],
     "GitLab": [
         'site:gitlab.com intext:"{email}"',
-        'site:gitlab.com intext:"contact" | "email" | "reach out"',
+        'site:gitlab.com intext:"{phone}"'
     ],
     "Common": [
         'site:facebook.com | site:twitter.com | site:instagram.com intext:"@gmail.com" | "@yahoo.com" | "@hotmail.com"',
@@ -71,14 +65,12 @@ custom_dork_templates = {
         'filetype:xls | filetype:csv intext:"@gmail.com" | "@yahoo.com" | "phone number"',
         'filetype:pdf intext:"{email}"',
         'filetype:csv intext:"{phone}"',
-        'filetype:txt intext:"@gmail.com"',
-        'filetype:log intext:"password"',
-        'intext:"@{email_domain}" site:pastebin.com',
-        'intext:"contact" filetype:doc OR filetype:xlsx',
+        'filetype:txt intext:"{email}"',
+        'intext:"@{email}" site:pastebin.com',
     ]
 }
 
-def generate_google_dorks_for_email(email):
+def generate_google_dorks_for_email(email, phone=None, username=None):
     results = []
     if not email:
         return results
@@ -87,27 +79,38 @@ def generate_google_dorks_for_email(email):
         for template in templates:
             if "{email}" not in template and "{email_domain}" not in template:
                 continue
-            if "{email}" in template and not email:
-                continue
-            if "{email_domain}" in template and not email_domain:
-                continue
             queries = []
-            if "{email}" in template:
-                queries.append(template.replace("{email}", str(email)))
-            elif "{email_domain}" in template:
-                queries.append(template.replace("{email_domain}", str(email_domain)))
+            # Replace all placeholders
+            query = template
+            if "{email}" in query:
+                query = query.replace("{email}", str(email))
+            if "{email_domain}" in query and email_domain:
+                query = query.replace("{email_domain}", str(email_domain))
+            if "{phone}" in query and phone:
+                phone_variants = generate_phone_variants(str(phone))
+                for variant in phone_variants:
+                    q = query.replace("{phone}", str(variant))
+                    if "{username}" in q and username:
+                        q = q.replace("{username}", str(username))
+                    queries.append(q)
+                if not phone_variants:
+                    if "{username}" in query and username:
+                        query = query.replace("{username}", str(username))
+                    queries.append(query)
             else:
-                queries.append(template)
-            for query in queries:
-                url = "https://www.google.com/search?q=" + urllib.parse.quote(query)
+                if "{username}" in query and username:
+                    query = query.replace("{username}", str(username))
+                queries.append(query)
+            for q in queries:
+                url = "https://www.google.com/search?q=" + urllib.parse.quote(q)
                 results.append({
                     "platform": platform,
-                    "query": query,
+                    "query": q,
                     "url": url
                 })
     return results
 
-def generate_google_dorks_for_phone(phone):
+def generate_google_dorks_for_phone(phone, email=None, username=None):
     results = []
     if not phone:
         return results
@@ -118,17 +121,22 @@ def generate_google_dorks_for_phone(phone):
                 continue
             queries = []
             for variant in phone_variants:
-                queries.append(template.replace("{phone}", str(variant)))
-            for query in queries:
-                url = "https://www.google.com/search?q=" + urllib.parse.quote(query)
+                query = template.replace("{phone}", str(variant))
+                if "{email}" in query and email:
+                    query = query.replace("{email}", str(email))
+                if "{username}" in query and username:
+                    query = query.replace("{username}", str(username))
+                queries.append(query)
+            for q in queries:
+                url = "https://www.google.com/search?q=" + urllib.parse.quote(q)
                 results.append({
                     "platform": platform,
-                    "query": query,
+                    "query": q,
                     "url": url
                 })
     return results
 
-def generate_google_dorks_for_username(username):
+def generate_google_dorks_for_username(username, email=None, phone=None):
     results = []
     if not username:
         return results
@@ -137,6 +145,12 @@ def generate_google_dorks_for_username(username):
             if "{username}" not in template:
                 continue
             query = template.replace("{username}", str(username))
+            if "{email}" in query and email:
+                query = query.replace("{email}", str(email))
+            if "{phone}" in query and phone:
+                phone_variants = generate_phone_variants(str(phone))
+                # Use the first variant for replacement
+                query = query.replace("{phone}", str(phone_variants[0]))
             url = "https://www.google.com/search?q=" + urllib.parse.quote(query)
             results.append({
                 "platform": platform,
@@ -155,9 +169,9 @@ def dork_lookup():
     username = data.get('username')
     if not (email or phone or username):
         return jsonify({'error': 'At least one of email, phone, or username is required.'}), 400
-    email_dorks = generate_google_dorks_for_email(email)
-    phone_dorks = generate_google_dorks_for_phone(phone)
-    username_dorks = generate_google_dorks_for_username(username)
+    email_dorks = generate_google_dorks_for_email(email, phone, username)
+    phone_dorks = generate_google_dorks_for_phone(phone, email, username)
+    username_dorks = generate_google_dorks_for_username(username, email, phone)
     return jsonify({
         'email_dorks': email_dorks,
         'phone_dorks': phone_dorks,

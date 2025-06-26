@@ -58,53 +58,44 @@ export function EmailDetails({ data }: { data: any }) {
   return (
     <div className="mb-6">
       <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2"><Mail className="inline" size={20}/> Email Details (Hunter API)</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Email:</span>
-            <span>{d.email}</span>
-            {/* Quora search button */}
-            {isQuora && (
-              <button
-                className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
-                style={{ fontSize: '0.75rem', lineHeight: 1, verticalAlign: 'middle' }}
-                onClick={handleQuoraSearch}
-              >
-                Search for accounts
-              </button>
-            )}
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Status:</span>
-            <span className={d.status === 'valid' ? 'text-green-400' : 'text-red-400'}>{d.status}</span>
-            {d.status === 'valid' ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>}
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Result:</span>
-            <span>{d.result}</span>
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Score:</span>
-            <span>{d.score}</span>
-          </div>
+      <div className="flex flex-col gap-1">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Email:</span>
+          <span>{d.email}</span>
+          {isQuora && (
+            <button
+              className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
+              style={{ fontSize: '0.75rem', lineHeight: 1, verticalAlign: 'middle' }}
+              onClick={handleQuoraSearch}
+            >
+              Search for accounts
+            </button>
+          )}
         </div>
-        <div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Webmail:</span>
-            <span>{d.webmail ? 'Yes' : 'No'}</span>
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Disposable:</span>
-            <span>{d.disposable ? 'Yes' : 'No'}</span>
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Accept All:</span>
-            <span>{d.accept_all ? 'Yes' : 'No'}</span>
-          </div>
-          <div className="mb-2 flex items-center gap-2">
-            <span className="font-semibold">Gibberish:</span>
-            <span>{d.gibberish ? 'Yes' : 'No'}</span>
-          </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Webmail:</span>
+          <span>{d.webmail ? 'Yes' : 'No'}</span>
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Status:</span>
+          <span className={d.status === 'valid' ? 'text-green-400' : 'text-red-400'}>{d.status}</span>
+          {d.status === 'valid' ? <CheckCircle className="text-green-400" size={18}/> : <XCircle className="text-red-400" size={18}/>} 
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Result:</span>
+          <span>{d.result}</span>
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Score:</span>
+          <span>{d.score}</span>
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Disposable:</span>
+          <span>{d.disposable ? 'Yes' : 'No'}</span>
+        </div>
+        <div className="mb-2 flex items-center gap-2">
+          <span className="font-semibold">Gibberish:</span>
+          <span>{d.gibberish ? 'Yes' : 'No'}</span>
         </div>
       </div>
       <div className="mt-2 text-xs text-gray-400 flex items-center gap-1"><Info size={14}/> SMTP Check: <span className={d.smtp_check ? 'text-green-400 ml-1' : 'text-red-400 ml-1'}>{d.smtp_check ? 'Passed' : 'Failed'}</span></div>
@@ -122,12 +113,9 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
     );
   }
   if (!data || !data.scanResults) return null;
-  const results = Object.entries(data.scanResults).filter(([, info]: any) => info.accountExist);
-  if (results.length === 0) {
-    return (
-      <div className="mb-6 text-cyan-300">No accounts found for this email.</div>
-    );
-  }
+  console.log('scanResults:', data.scanResults);
+  const results = Object.entries(data.scanResults);
+  console.log('results:', results);
   const email = data.email || '';
 
   // SweetAlert handler for Quora
@@ -194,9 +182,12 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {results.map(([service, info]: any) => {
           let profileLink = null;
-          if (service === 'Github' && info.profile) {
-            const match = info.profile.match(/github.com\/(.+)$/);
-            const username = match ? match[1] : 'Profile';
+          if (info.profile) {
+            let linkText = 'Profile';
+            if (service === 'Github') {
+              const match = info.profile.match(/github.com\/(.+)$/);
+              linkText = match ? match[1] : 'Profile';
+            }
             profileLink = (
               <a
                 href={info.profile}
@@ -204,7 +195,7 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
                 rel="noopener noreferrer"
                 className="underline text-cyan-300 ml-2"
               >
-                {username}
+                {linkText}
               </a>
             );
           }
@@ -214,7 +205,6 @@ function EmailScanDetails({ data, loading }: { data: any, loading: boolean }) {
               <span className="text-green-400">Exists</span>
               {profileLink}
               <CheckCircle className="text-green-400" size={18}/>
-              {/* Quora search button for Quora Exists */}
               {service === 'Quora' && (
                 <button
                   className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
@@ -347,7 +337,17 @@ export function GhuntResults({ data }: { data: any }) {
       </h3>
       <div className="flex flex-col md:flex-row gap-6 items-start">
         {photoUrl && (
-          <img src={photoUrl} alt="Profile" className="w-24 h-24 rounded-full border-2 border-cyan-400 object-cover" />
+          <div className="flex flex-col items-center">
+            <img src={photoUrl} alt="Profile" className="w-24 h-24 rounded-full border-2 border-cyan-400 object-cover" />
+            <a
+              className="mt-2 px-3 py-1 bg-yellow-600 hover:bg-yellow-700 text-white rounded shadow text-xs font-semibold"
+              href={`https://yandex.com/images/search?cbir_id=470288%2FSI8lnTNlDX4Nv_1RcmcEEg651&rpt=imageview&url=${encodeURIComponent(photoUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reverse Image Search
+            </a>
+          </div>
         )}
         <div className="flex-1">
           {name && (

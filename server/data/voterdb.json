@@ -1,47 +1,4552 @@
 {
     "data": [
-        {"name": "Angad Singh", "district": "Kushinagar", "ULB": "ULB 1", "ward": "Ward 1"},
-        {"name": "Ajaypal Singh", "district": "Rampur", "ULB": "ULB 2", "ward": "Ward 2"},
-        {"name": "Sourav", "district": "Kushinagar", "ULB": "ULB 3", "ward": "Ward 3"},
-        {"name": "Shivswaroop", "district": "Rampur", "ULB": "ULB 4", "ward": "Ward 4"},
-        {"name": "Aakash", "district": "Kushinagar", "ULB": "ULB 5", "ward": "Ward 5"},
-        {"name": "Ram Kumar", "district": "Rampur", "ULB": "ULB 6", "ward": "Ward 6"},
-        {"name": "Omnarayan", "district": "Kushinagar", "ULB": "ULB 7", "ward": "Ward 7"},
-        {"name": "Pushpkala", "district": "Rampur", "ULB": "ULB 8", "ward": "Ward 8"},
-        {"name": "Rameshwar Dayal", "district": "Kushinagar", "ULB": "ULB 9", "ward": "Ward 9"},
-        {"name": "Baburam", "district": "Rampur", "ULB": "ULB 10", "ward": "Ward 10"},
-        {"name": "Khachermal", "district": "Kushinagar", "ULB": "ULB 11", "ward": "Ward 11"},
-        {"name": "Virendra Prakash", "district": "Rampur", "ULB": "ULB 12", "ward": "Ward 12"},
-        {"name": "Banwari Lal", "district": "Kushinagar", "ULB": "ULB 13", "ward": "Ward 13"},
-        {"name": "Angadbaj", "district": "Rampur", "ULB": "ULB 14", "ward": "Ward 14"},
-        {"name": "Sahab Singh", "district": "Kushinagar", "ULB": "ULB 15", "ward": "Ward 15"},
-        {"name": "Shashibala", "district": "Rampur", "ULB": "ULB 16", "ward": "Ward 16"},
-        {"name": "Munni Devi", "district": "Kushinagar", "ULB": "ULB 17", "ward": "Ward 17"},
-        {"name": "Surendra Prasad", "district": "Rampur", "ULB": "ULB 18", "ward": "Ward 18"},
-        {"name": "Heeren Kumar", "district": "Kushinagar", "ULB": "ULB 19", "ward": "Ward 19"},
-        {"name": "Rajni Bala", "district": "Rampur", "ULB": "ULB 20", "ward": "Ward 20"},
-        {"name": "Anil Kumar", "district": "Kushinagar", "ULB": "ULB 21", "ward": "Ward 21"},
-        {"name": "Dharmendra", "district": "Rampur", "ULB": "ULB 22", "ward": "Ward 22"},
-        {"name": "Asha Devi", "district": "Kushinagar", "ULB": "ULB 23", "ward": "Ward 23"},
-        {"name": "Asha", "district": "Rampur", "ULB": "ULB 24", "ward": "Ward 24"},
-        {"name": "Hemlata", "district": "Kushinagar", "ULB": "ULB 25", "ward": "Ward 25"},
-        {"name": "Kishanlal", "district": "Rampur", "ULB": "ULB 26", "ward": "Ward 26"},
-        {"name": "Santosh Kumar", "district": "Kushinagar", "ULB": "ULB 27", "ward": "Ward 27"},
-        {"name": "Dharmendra Kumar", "district": "Rampur", "ULB": "ULB 28", "ward": "Ward 28"},
-        {"name": "Manoj Kumar", "district": "Kushinagar", "ULB": "ULB 29", "ward": "Ward 29"},
-        {"name": "Vanwari Lal", "district": "Rampur", "ULB": "ULB 30", "ward": "Ward 30"},
-        {"name": "Sheela", "district": "Kushinagar", "ULB": "ULB 31", "ward": "Ward 31"},
-        {"name": "Deepak Kumar", "district": "Rampur", "ULB": "ULB 32", "ward": "Ward 32"},
-        {"name": "Sanu", "district": "Kushinagar", "ULB": "ULB 33", "ward": "Ward 33"},
-        {"name": "Deepika", "district": "Rampur", "ULB": "ULB 34", "ward": "Ward 34"},
-        {"name": "Nitin Kumar", "district": "Kushinagar", "ULB": "ULB 35", "ward": "Ward 35"},
-        {"name": "Mamt", "district": "Rampur", "ULB": "ULB 36", "ward": "Ward 36"},
-        {"name": "Singh", "district": "Kushinagar", "ULB": "ULB 37", "ward": "Ward 37"},
-        {"name": "Ajaypal", "district": "Rampur", "ULB": "ULB 38", "ward": "Ward 38"},
-        {"name": "Deep Gupta", "district": "Kushinagar", "ULB": "ULB 39", "ward": "Ward 39"},
-        {"name": "Sushila Devi", "district": "Rampur", "ULB": "ULB 40", "ward": "Ward 40"},
-        {"name": "Anita Devi", "district": "Kushinagar", "ULB": "ULB 41", "ward": "Ward 41"},
-        {"name": "Kunal", "district": "Rampur", "ULB": "ULB 42", "ward": "Ward 42"},
-        {"name": "Ajay Kumar", "district": "Kushinagar", "ULB": "ULB 43", "ward": "Ward 43"}
-    ]
+        {
+      "name": "Poonam Kumari",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Manoj Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sunita Devi",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Satish Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Parvati",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkhelawan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Majudevi",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Kamlesh Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkhelawan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Chhotelal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Amit Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Vipin Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Omprakash",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkhelawan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sujit Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anil Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rita",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Omprakash",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shilpa Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anil Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rakesh",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkhelawan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Pragya Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sujit Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Urmila",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rakesh",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rashmi Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anil Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rajesh Verma",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkhelawan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Satyam Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Satish Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shikha Verma",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rajesh",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shubham Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Satish Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Pushpa",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Santosh Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anil Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ram Lalan Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Jawahar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramkuber",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Vipin Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ram Lalan Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shankarmamani",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Jawahar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Nirmala Devi",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Vipin Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anand Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Jawahar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Satish Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ram Lalan Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Kumkum",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anand Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Asha Devi",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anil Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Santosh Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Dudhnath",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ajit Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Vipin Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Paramjit",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Santosh Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Vaibhav Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Kamlesh Kumar Mishra",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Harikesh Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Dudhnath",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Naimul Nisha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Anwar Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Padesh",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Valiram",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Agfa F War",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Munnalal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Munnalal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Zaheer Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Nawab Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shyama",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Munnalal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Khalil Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Nawab Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sunderlal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Hoshila Prasad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Deepak",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sunderlal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shakeel Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sultan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shyamkali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Deepak",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Qayyum Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Nawab Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shanti",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramesh Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Innatul Nisha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Khalil A.",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rajkumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Deepak",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Saidoon Nisha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Qayyum Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sunita",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Raj Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Waseem Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Abdul Ghaffar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Lavkush",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Deepak",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Naseem Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Abdul Ghaffar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramavatar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Hoshila Prasad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shabana Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Naseem Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Somvati",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ramautar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Moquim Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Abdul Ghaffar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sheela",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shiv Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ejaz Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Abdul Ghaffar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Pratibha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shiv Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Aaliya Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Abdul Ghaffar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ram Ji",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Imran Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Moquim",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shyam Ji",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shiv Kumar",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Moharram Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Khalil Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Mannelal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ghirrau",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Muvina Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ejaz Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sita",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Mannelal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Sameerul Nisha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ibrar Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Prem Kumari",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Mansingh-Kallu",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Shehnaz Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Irfan",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Mansingh-Kallu",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ghirrau",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Gufran Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Zaheer",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Omprakash",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ghirrau",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Irfan Ahmad",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Zaheer",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Rekha",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Omprakash",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Salma Bano",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Muharram Ali",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Lalbahadur",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Mannelal",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "K. Aruna Gupta",
+      "district": "Amethi",
+      "ULB": "Musafirkhana",
+      "ward": "Station Area"
+    },
+    {
+      "name": "Ashok Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pappu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Phool Mati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ajeet Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yadvir Singh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abiya Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Tahir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Kaleem",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Sabir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Neeraj Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Prem Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Taukeer",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Munne",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Akash Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Asharfi Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Shakir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radus Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sakhan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sartaj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kifayat Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Neelam Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dinesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Subhashini Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sushil Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vishal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Santram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nirmala Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radhe Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Amreesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Amar Singh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savita Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sohan Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rukhsana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shabina Parveen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Waseem",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiv Jeet Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yadveer Singh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aashish",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Girdhari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Alok Saini",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Babu Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Habib Ahmad Ansari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fara",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Salman",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Milan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kali Charan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiv Kumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Virendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Meera",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Hulasi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunny",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Munni Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shalini Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sanjay Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abhishek",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Palak Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Arun Sharma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Kaif Khan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pradesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiv Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sonam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pramod Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anju Devi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Soni",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Zakir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raees",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fiqayat Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruby",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radhelal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rais Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivkant",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ajali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Soni Devi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mukesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramjanaki",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fahmida Yabno",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ekhlaq Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramchandra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahul",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Preeti",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bablu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiv",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Babulal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruman Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jection",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ahmed Miya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yadvir Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajpati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anuradha Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rampal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pinky Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ankit Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shahnoor",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abul",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Anas",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anwar Aarfi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sobran Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shri Keshan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yashmin",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Seema",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fiza",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rais",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jubaida",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohammad Salam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahim Baksh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramesh Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aarti",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bhavno",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manish",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pushpendra Kumar Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saurabh Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manoj Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anshu Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shubham Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Suraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mithilesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sarita Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Surendra Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mahendra Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Neeraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Hira Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mantasha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anwar Warsi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Shankar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Harishchandra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Deepali Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raj Kishore",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ghulam Jilani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jameel Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Suman Gautam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Om Prakash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Iram Fatma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Muvasshir Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shakeel Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruhi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ishwardeen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Firdous Fatma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sarwan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sazia",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ghulam Jilani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lakshmi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Obais Jameel",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nazbeen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Junaid Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sehnaz Fatma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Monu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chhote Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sara",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parvez",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aman Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramavati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramdas",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajkumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Batasha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chandrika Prasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gajraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jyoti Kumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Vikshan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Irfan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nizamuddin",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sudha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parveena Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohammad Sharif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Deepu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sangeeta",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ravi Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raj Kumar Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gunja Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Deepak Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savleha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mubshirar Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Priya Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Salim",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kavita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramchandra Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahul Sahu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Tulika",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radha Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ganga Ram Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Farhan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ehsan Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mahesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gajraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Guddi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Budhu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chinki",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aman",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Maika",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramprasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sukhdei",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Deendayal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gangaram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Meera",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rais Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sultan Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sarwan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Archana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shahnaz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Daya Shankar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Madanchandra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Samreen Mehndi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohammad Kashif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fatma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ahsan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savita Kumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahul Kumar Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Busra Fatima",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruman Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ahmad Miya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fazal Parvez",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parvez Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Naushad Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ajmat Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahila",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jaane Alam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Zeeshan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Musabbir Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Masroor Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shabina",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Asrar Mumtaz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jamal Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mahar Afroze",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bajmi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yusuf Parvez",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Busra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Yusuf",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mehboob Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sayra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rizwana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sana Fatima",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shaukat Jahan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Marsarat Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rubi Khan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mumtaz Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Javed Mumtaz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohmudnisha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Hasan Javed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nida Javed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sumra Javed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Safiya Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anwar Mumtaz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Farida Anwar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ejaz Mumtaz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Imra Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sirajul Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anwarul",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mushtaq Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Najmi Aarfi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nahid Aarfi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Suraiya Begum",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anwarul Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Faizul Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jisan Aarfi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Najis Aarfi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ahsan Jamal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nasreen Ahsan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bhagwandeen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dhanavati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Noor Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kamarul Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajkishore",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Guddan Bari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ashok Kumar Wari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shri Gajraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Urmila",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Reshma Begum",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Sueb",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vaibhav Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sudhakar Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Faiyaz Abbasi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Urooj Iram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rupesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramoo",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chandrika",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kanchan Sharma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Kumar Sharma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shubham Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ibrahim",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Asif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiva",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Asif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sugra Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mumtaz Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sufiyan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sajid",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramdulari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kadile",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kailash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sandeep Kumar Saini",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Banwari Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Geeta",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manjeet Saini",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Archana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dipali Saini",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Bilal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shamshad Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jodha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nihal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kusum Kali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sardar Prasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lalaram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gokul",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Keshav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sadhana Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shambhu Dayal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Meena Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rampyari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sundarlal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sona",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dileep Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dileep",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Avinash Bajpai",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shubham Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramdayal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mira",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Husali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Baibhav Pandey",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Indrapal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vijay Pal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Naresh Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Keshav Prasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gudia",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Indrachandra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivkumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pramod Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pappy",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramnaresh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rinku",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sandeep Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shiv Kant",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sangeeta",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Naresh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vijayman",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shankar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mahender",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Azhar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramrati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Satnu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parveen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Kashif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Asif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mahendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abrar Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramkumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shabnam Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jaleel",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Husna Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Upendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Farha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Darakhsha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Shakir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Iram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Azhar Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nitu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Upendra Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Tariq",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Arshima",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jaleel Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruksana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Iqbal Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abdul Rashid",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Siddique",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Nafees",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Shuaib",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shahabuddin",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Asare",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramgopal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Baby",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rekha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Reena",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Musarrat Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Musharraf Hussain",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aisa Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "A Rashid",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shakeela Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Zeenat",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aleem Ahmed Asangari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Radha Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rammilan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Munna",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajarani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Hashima Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Haseeb",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Baldav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pancham",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jagrana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Waizd Ali",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Masoor Jahan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savitri",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Baburam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramrati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Neelam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Noor Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahish Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Larak Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Afshana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jitendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Farzana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nilesh Kashyap",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fikiren",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dharma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Khagesur",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kishan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gudia",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parmesur",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sanjay",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shabana Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Shadab",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramsundar Geeta",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramchander",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rupesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Khalid",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abdul Naeem",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Asharfi Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chandar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Baboolal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bhayya Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bhagwandeen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kamla",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gangadevi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Khudbiya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Munif",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manoj Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Reshma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Reshma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parshuram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sevak",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rameshwari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shakuna",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pammi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rakesh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aarti",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Archana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sonu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aamir Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saidul Hasan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rahis Khatun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kamala",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raja Ram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manish Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shafiya Bano",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Furkan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Satish Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manju",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Munni",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chhaga",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Harishankar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savitri",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Sagir",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rohit",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saumya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramcharan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gurudeen",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Janakdulari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Virendra",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Nafees",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saba Naz",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ram Naresh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Durga Prasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jagnoo",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saraswati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramdulare",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raju",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jagjivan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Raja",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manoj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Safe",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Rizwan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramlal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chhabile",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Kalam",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Shafiq",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Salama Begum",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Saina",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Jagdish",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lavkush",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gyanwati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajkumari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Salman",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shekhar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Akur",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sabina",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mantsa",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pyara",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kushal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Suresh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sarupe",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chhumana",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nanhe",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Babita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shyambabu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Munni Lal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nanhku",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lakshmi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Anil Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunil Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Aasu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pyarelal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Namma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nabi Qureshi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivaksh Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ballu Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bhagwandai",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Hardev",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sidhiya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shyam Manohar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ajay",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Arun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ankit",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Balakrishna",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kamal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shan Ahmed",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shalini",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Abhishek",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Brijrani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mihilal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gaya Prasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rambha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rampati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Siyapati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunil",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ranjeet Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shakuntala",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rinku",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Chhaya",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moehtisham Ansari",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Moh Ikram",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rinki",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Gayaprasad",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rishabh Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramshwar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Indrani",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Fakire",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Usha",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lajjavati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rakesh Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Tinku",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Arvind",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nandkishore",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manorama",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Tejnarayan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Heeralal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Mohanlal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kamala",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sushil Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Omprakash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pramila",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Bijay Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Deepmala",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Shivprakash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ajay Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Geeta",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sanjay Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lakshmi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ravikumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Roma Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Pawan Yadav",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Seema",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ruby",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vishal",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Rajesh Sharma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Simran",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nitu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sunita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Suneet",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Neeraj",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Harsh Kumar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Prakhar Rastogi",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Savita",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ravi Prakash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Nirmala",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Om Prakash",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Kailashnath Verma",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Dharma Narayan",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Ramvishun",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Parmeshwar",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Vidyavati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Harsh",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Manglu",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Lajjavati",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Sohni",
+      "district": "Lucknow",
+      "ULB": "Kakori",
+      "ward": "Fulwari"
+    },
+    {
+      "name": "Harsh Vardhana",
+      "district": "Muzzafarpur",
+      "ULB": "Mithanpura",
+      "ward": "Gaushala"
+    }
+  ]
 }

@@ -108,7 +108,7 @@ def voter_db_search():
         records = db.get('data', [])
         # Filter records where all provided parameters match (case-insensitive)
         def match(record):
-            if name and record.get('name', '').lower() != name.lower():
+            if name and name.lower() not in record.get('name', '').lower():
                 return False
             if district and record.get('district', '').lower() != district.lower():
                 return False

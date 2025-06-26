@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="relative min-h-screen w-full bg-black">
       {/* Matrix background */}
-      <MatrixRainingLetters custom_class="fixed inset-0 w-full h-full z-0 opacity-20" />
+      <MatrixRainingLetters custom_class="fixed inset-0 w-full h-full z-0 opacity-30" />
       {/* Content goes here, above the matrix */}
       <div className="relative z-20 flex flex-col items-center min-h-screen">
         {/* SVG gradient definition for the shield icon */}

@@ -1,9 +1,17 @@
-import { useState } from 'react';
-import { Mail, Phone, User, Eye, LoaderCircle } from 'lucide-react';
-import Results from './Results';
+import { useState, useRef } from 'react';
+import { Mail, Phone, User, Eye, LoaderCircle, CheckCircle } from 'lucide-react';
 import config from '../config';
-import { useRef } from 'react';
 import { EmailDetails, GhuntResults, PhoneDetails } from './Results';
+import Swal from 'sweetalert2';
+
+// Add this array near the top, after imports and before the component
+const DISTRICT_OPTIONS = [
+  { value: '', label: 'Any District' },
+  { value: 'Amethi', label: 'Amethi' },
+  { value: 'Lucknow', label: 'Lucknow' },
+  { value: 'Muzzafarpur', label: 'Muzzafarpur' }
+  // Add more districts here as needed
+];
 
 function DorkResults({ dorkResult }: { dorkResult: any }) {
   if (!dorkResult) return null;
@@ -86,6 +94,15 @@ export default function TargetForm() {
   const [voterLoading, setVoterLoading] = useState(false);
   const [voterError, setVoterError] = useState<string | null>(null);
   const [voterResults, setVoterResults] = useState<any[]>([]);
+
+  // Fake account search state
+  const [fakeLoading, setFakeLoading] = useState(false);
+  const [fakeProgress, setFakeProgress] = useState(0);
+  const [fakeResults, setFakeResults] = useState<any[]>([]);
+  const [fakeTotal, setFakeTotal] = useState(0);
+  const [fakeError, setFakeError] = useState<string | null>(null);
+
+  const printRef = useRef<HTMLDivElement>(null);
 
   const isAnyFilled = email.trim() !== '' || phone.trim() !== '' || username.trim() !== '';
   const isButtonDisabled = !isAnyFilled || loading;
@@ -237,153 +254,96 @@ export default function TargetForm() {
     }
   };
 
+  function generateFakeUsernames(baseUsername: string): string[] {
+    const suffixes = [
+      '1', '01', '123', '321', '111', '000', 'real', 'official', 'x', 'xx', 'xxx',
+      'the', 'not', 'fake', '0', '007', 'insta', 'ig', 'fan', 'admin',
+      '2024', '2023', '2003'
+    ];
+    const prefixes = [
+      '', '_', 'the', 'real', 'official', 'fake', 'not', 'x', 'xx', 'xxx',
+      '1', '2', '007', 'user', 'fan', 'admin', 'z', 'real_', 'only'
+    ];
+    const patterns = [
+      '{}{}', '{}{}', '{}.{}', '{}-{}', '{}{}', '_{}{}', '{}{}1',
+      '{}{}x', '{}{}z', '{}{}official', '{}.real', '{}{}_', '{}.{}', '{}{}{}',
+      '{}{}{}', '{}{}', '{}.{}.', '{}{}{}', '{}.{}{}', '{}{}', '{}{}123'
+    ];
+    const fakeUsernames = new Set<string>();
+    while (fakeUsernames.size < 50) {
+      const prefix = Math.random() < 0.5 ? prefixes[Math.floor(Math.random() * prefixes.length)] : '';
+      const suffix = Math.random() < 0.7 ? suffixes[Math.floor(Math.random() * suffixes.length)] : '';
+      const mid = Math.random() < 0.3 ? Array.from({length: Math.floor(Math.random()*2)+1}, () => String.fromCharCode(97 + Math.floor(Math.random()*26))).join('') : '';
+      const pattern = patterns[Math.floor(Math.random() * patterns.length)];
+      let fake = '';
+      const count = (pattern.match(/\{\}/g) || []).length;
+      try {
+        if (count === 3) {
+          fake = pattern.replace('{}', prefix).replace('{}', baseUsername).replace('{}', suffix);
+        } else if (count === 2) {
+          fake = pattern.replace('{}', prefix + baseUsername).replace('{}', mid + suffix);
+        } else {
+          fake = pattern.replace('{}', prefix + baseUsername);
+        }
+      } catch {
+        continue;
+      }
+      fake = fake.replace(/\s+/g, '').toLowerCase();
+      if (fake !== baseUsername.replace(/\s+/g, '').toLowerCase()) {
+        fakeUsernames.add(fake);
+      }
+    }
+    return Array.from(fakeUsernames);
+  }
+
+  const handleFakeSearch = async () => {
+    if (!username) return;
+    setFakeLoading(true);
+    setFakeProgress(0);
+    setFakeResults([]);
+    setFakeError(null);
+    const fakeUsernames = generateFakeUsernames(username);
+    setFakeTotal(fakeUsernames.length);
+    const resultsArr: any[] = [];
+    for (let i = 0; i < fakeUsernames.length; i++) {
+      const fake = fakeUsernames[i];
+      try {
+        const res = await fetch(`${config.API_BASE_URL}/api/socialscan`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: fake })
+        });
+        const json = await res.json();
+        resultsArr.push({ username: fake, ...json });
+      } catch (err) {
+        resultsArr.push({ username: fake, error: 'API error' });
+      }
+      setFakeProgress(i + 1);
+      setFakeResults([...resultsArr]);
+    }
+    setFakeLoading(false);
+  };
+
   // Determine if any results are present
   const hasResults = !!(emailResult || emailScanResult || phoneResult || phoneScanResult || usernameResult || ghuntResult || maigretResult);
 
+  const handlePrint = () => {
+    // Hide the print button before printing
+    const printButton = document.getElementById('export-pdf-btn');
+    if (printButton) printButton.style.display = 'none';
+    window.print();
+    setTimeout(() => {
+      if (printButton) printButton.style.display = '';
+    }, 1000);
+  };
+
   return (
     <>
-      {!hasResults ? (
-        // Centered form when no results
-        <div className="w-full max-w-2xl mx-auto mt-12">
-          <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-10 py-8 text-gray-100">
-            <div className="flex items-center mb-8 space-x-2">
-              <Eye className="text-green-400" size={26} />
-              <h2 className="text-2xl font-bold text-green-400">Target Identification</h2>
-            </div>
-            <form className="space-y-6" onSubmit={handleClick}>
-              <div className="space-y-1">
-                <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="email">
-                  <Mail className="mr-2 text-gray-400" size={18} />
-                  Email Address
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="target@example.com"
-                  className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="phone">
-                  <Phone className="mr-2 text-gray-400" size={18} />
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  placeholder="+91 987654321X"
-                  className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
-                  value={phone}
-                  onChange={e => setPhone(e.target.value)}
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="username">
-                  <User className="mr-2 text-gray-400" size={18} />
-                  Username
-                </label>
-                <input
-                  id="username"
-                  type="text"
-                  placeholder="username"
-                  className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                />
-              </div>
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isButtonDisabled}
-                  onClick={handleClick}
-                  className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-semibold text-lg text-black bg-gradient-to-r from-green-400 via-cyan-400 to-blue-400 hover:from-green-500 hover:to-blue-500 transition ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  {loading && <LoaderCircle className="animate-spin" size={22} />}
-                  Initiate Scan
-                </button>
-              </div>
-            </form>
-            {error && <div className="mt-4 text-red-400 text-center">{error}</div>}
-            {dorkError && <div className="mt-2 text-red-400 text-center">{dorkError}</div>}
-          </div>
-          {/* Voter DB Search Form centered below */}
-          <div className="mt-10 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100">
-            <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Voter Database Search</h3>
-            <form onSubmit={handleVoterSearch} className="space-y-4">
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-name">Name</label>
-                  <input
-                    id="voter-name"
-                    type="text"
-                    placeholder="Name"
-                    className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
-                    value={voterName}
-                    onChange={e => setVoterName(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-district">District</label>
-                  <input
-                    id="voter-district"
-                    type="text"
-                    placeholder="District"
-                    className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
-                    value={voterDistrict}
-                    onChange={e => setVoterDistrict(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isVoterButtonDisabled || voterLoading}
-                  className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-semibold text-lg text-black bg-gradient-to-r from-red-400 via-cyan-400 to-blue-400 hover:from-red-500 hover:to-blue-500 transition ${isVoterButtonDisabled || voterLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  {voterLoading && <LoaderCircle className="animate-spin" size={22} />}
-                  Search Voter Database
-                </button>
-              </div>
-              {voterError && <div className="mt-4 text-red-400 text-center">{voterError}</div>}
-            </form>
-            {/* Results Table */}
-            {voterResults.length === 0 && !voterLoading && !voterError && (voterName.trim() || voterDistrict.trim()) && (
-              <div className="mt-6 text-center text-cyan-300">No records found</div>
-            )}
-            {voterResults.length > 0 && (
-              <div className="mt-6 overflow-x-auto">
-                <table className="min-w-full text-sm text-left border border-cyan-900 rounded bg-black bg-opacity-60">
-                  <thead>
-                    <tr className="bg-cyan-900 text-cyan-200">
-                      <th className="px-4 py-2">Name</th>
-                      <th className="px-4 py-2">District</th>
-                      <th className="px-4 py-2">ULB</th>
-                      <th className="px-4 py-2">Ward</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {voterResults.map((row, i) => (
-                      <tr key={i} className="border-t border-cyan-900">
-                        <td className="px-4 py-2">{row.name}</td>
-                        <td className="px-4 py-2">{row.district}</td>
-                        <td className="px-4 py-2">{row.ULB}</td>
-                        <td className="px-4 py-2">{row.ward}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-        </div>
-      ) : (
-        // Two-column layout when results are present
-        <div className="w-full max-w-7xl mx-auto mt-4 flex gap-8">
-          {/* Left Column - Form and Results */}
-          <div className="w-2/5 flex-shrink-0 sticky top-4 h-fit">
-            <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
+      <div ref={printRef}>
+        {!hasResults ? (
+          // Centered form when no results
+          <div className="w-full max-w-2xl w-[800px] mx-auto mt-12">
+            <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-16 py-8 text-gray-100">
               <div className="flex items-center mb-8 space-x-2">
                 <Eye className="text-green-400" size={26} />
                 <h2 className="text-2xl font-bold text-green-400">Target Identification</h2>
@@ -446,19 +406,8 @@ export default function TargetForm() {
               {error && <div className="mt-4 text-red-400 text-center">{error}</div>}
               {dorkError && <div className="mt-2 text-red-400 text-center">{dorkError}</div>}
             </div>
-            {/* Left Column Results - Hunter API, GHunt, Numverify */}
-            {(emailResult || ghuntResult || phoneResult) && (
-              <div className="mt-6 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
-                <h3 className="text-lg font-bold text-green-400 mb-4 flex items-center gap-2">Primary Results</h3>
-                <div className="space-y-6">
-                  {emailResult && <EmailDetails data={emailResult} />}
-                  {ghuntResult && <GhuntResults data={ghuntResult} />}
-                  {phoneResult && <PhoneDetails data={phoneResult} />}
-                </div>
-              </div>
-            )}
-            {/* Voter DB Search Form */}
-            <div className="mt-6 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
+            {/* Voter DB Search Form centered below */}
+            <div className="mt-10 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100">
               <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Voter Database Search</h3>
               <form onSubmit={handleVoterSearch} className="space-y-4">
                 <div className="space-y-4">
@@ -475,14 +424,16 @@ export default function TargetForm() {
                   </div>
                   <div>
                     <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-district">District</label>
-                    <input
+                    <select
                       id="voter-district"
-                      type="text"
-                      placeholder="District"
                       className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
                       value={voterDistrict}
                       onChange={e => setVoterDistrict(e.target.value)}
-                    />
+                    >
+                      {DISTRICT_OPTIONS.map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div className="pt-2">
@@ -527,101 +478,444 @@ export default function TargetForm() {
               )}
             </div>
           </div>
-          {/* Right Column - Results */}
-          <div className="flex-1 space-y-6">
-            {/* Right Column Results - EmailScan, PhoneScan, Username, Maigret */}
-            {(emailScanResult || phoneScanResult || usernameResult || maigretResult) && (
-              <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100 w-full max-w-2xl mx-auto">
-                <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Extended Results</h3>
-                <div className="space-y-6">
-                  {emailScanResult && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Email Account Existence Scan</h3>
-                      {scanLoading.email ? (
-                        <div className="flex items-center gap-2 text-cyan-300">
-                          <LoaderCircle className="animate-spin" size={20} />
-                          Scanning for accounts...
-                        </div>
-                      ) : emailScanResult.scanResults ? (
+        ) : (
+          // Two-column layout when results are present
+          <div className="w-full max-w-7xl mx-auto mt-4 flex gap-8">
+            {/* Left Column - Form and Results */}
+            <div className="w-2/5 flex-shrink-0 sticky top-4 h-fit">
+              <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
+        <div className="flex items-center mb-8 space-x-2">
+          <Eye className="text-green-400" size={26} />
+          <h2 className="text-2xl font-bold text-green-400">Target Identification</h2>
+        </div>
+        <form className="space-y-6" onSubmit={handleClick}>
+          <div className="space-y-1">
+            <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="email">
+              <Mail className="mr-2 text-gray-400" size={18} />
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="target@example.com"
+              className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="phone">
+              <Phone className="mr-2 text-gray-400" size={18} />
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="+91 987654321X"
+              className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+              value={phone}
+              onChange={e => setPhone(e.target.value)}
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="flex items-center text-gray-300 text-sm mb-0.5" htmlFor="username">
+              <User className="mr-2 text-gray-400" size={18} />
+              Username
+            </label>
+            <input
+              id="username"
+              type="text"
+              placeholder="username"
+              className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isButtonDisabled}
+              onClick={handleClick}
+              className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-semibold text-lg text-black bg-gradient-to-r from-green-400 via-cyan-400 to-blue-400 hover:from-green-500 hover:to-blue-500 transition ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {loading && <LoaderCircle className="animate-spin" size={22} />}
+              Initiate Scan
+            </button>
+          </div>
+        </form>
+        {error && <div className="mt-4 text-red-400 text-center">{error}</div>}
+                {dorkError && <div className="mt-2 text-red-400 text-center">{dorkError}</div>}
+              </div>
+              {/* Left Column Results - Hunter API, GHunt, Numverify */}
+              {(emailResult || ghuntResult || phoneResult) && (
+                <div className="mt-6 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
+                  <h3 className="text-lg font-bold text-green-400 mb-4 flex items-center gap-2">Primary Results</h3>
+                  <div className="space-y-6">
+                    {emailResult && <EmailDetails data={emailResult} />}
+                    {ghuntResult && <GhuntResults data={ghuntResult} />}
+                    {phoneResult && <PhoneDetails data={phoneResult} />}
+                  </div>
+                </div>
+              )}
+              {/* Voter DB Search Form */}
+              <div className="mt-6 bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-6 py-6 text-gray-100">
+                <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Voter Database Search</h3>
+                <form onSubmit={handleVoterSearch} className="space-y-4">
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-name">Name</label>
+                      <input
+                        id="voter-name"
+                        type="text"
+                        placeholder="Name"
+                        className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+                        value={voterName}
+                        onChange={e => setVoterName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-gray-300 text-sm mb-1" htmlFor="voter-district">District</label>
+                      <select
+                        id="voter-district"
+                        className="w-full rounded-md bg-black bg-opacity-60 border border-cyan-900 text-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-gray-500"
+                        value={voterDistrict}
+                        onChange={e => setVoterDistrict(e.target.value)}
+                      >
+                        {DISTRICT_OPTIONS.map(opt => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isVoterButtonDisabled || voterLoading}
+                      className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-semibold text-lg text-black bg-gradient-to-r from-red-400 via-cyan-400 to-blue-400 hover:from-red-500 hover:to-blue-500 transition ${isVoterButtonDisabled || voterLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    >
+                      {voterLoading && <LoaderCircle className="animate-spin" size={22} />}
+                      Search Voter Database
+                    </button>
+                  </div>
+                  {voterError && <div className="mt-4 text-red-400 text-center">{voterError}</div>}
+                </form>
+                {/* Results Table */}
+                {voterResults.length === 0 && !voterLoading && !voterError && (voterName.trim() || voterDistrict.trim()) && (
+                  <div className="mt-6 text-center text-cyan-300">No records found</div>
+                )}
+                {voterResults.length > 0 && (
+                  <div className="mt-6 overflow-x-auto">
+                    <table className="min-w-full text-sm text-left border border-cyan-900 rounded bg-black bg-opacity-60">
+                      <thead>
+                        <tr className="bg-cyan-900 text-cyan-200">
+                          <th className="px-4 py-2">Name</th>
+                          <th className="px-4 py-2">District</th>
+                          <th className="px-4 py-2">ULB</th>
+                          <th className="px-4 py-2">Ward</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {voterResults.map((row, i) => (
+                          <tr key={i} className="border-t border-cyan-900">
+                            <td className="px-4 py-2">{row.name}</td>
+                            <td className="px-4 py-2">{row.district}</td>
+                            <td className="px-4 py-2">{row.ULB}</td>
+                            <td className="px-4 py-2">{row.ward}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            </div>
+            {/* Right Column - Results */}
+            <div className="flex-1 space-y-6">
+              {/* Right Column Results - EmailScan, PhoneScan, Username, Maigret */}
+              {(emailScanResult || phoneScanResult || usernameResult || maigretResult) && (
+                <div className="bg-black bg-opacity-70 border border-cyan-900 rounded-xl shadow-lg px-8 py-6 text-gray-100 w-full max-w-2xl mx-auto">
+                  <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Extended Results</h3>
+                  <div className="space-y-6">
+                    {emailScanResult && (
+                      <div className="mb-6">
+                        <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Email Account Existence Scan</h3>
+                        {scanLoading.email ? (
+                          <div className="flex items-center gap-2 text-cyan-300">
+                            <LoaderCircle className="animate-spin" size={20} />
+                            Scanning for accounts...
+                          </div>
+                        ) : emailScanResult.scanResults ? (
+                          <>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {Object.entries(emailScanResult.scanResults)
+                                .filter(([, info]: any) => info.accountExist)
+                                .map(([service, info]: any) => {
+                                  let profileLink = null;
+                                  if (info.profile) {
+                                    let linkText = 'Profile';
+                                    if (service === 'Github') {
+                                      const match = info.profile.match(/github.com\/(.+)$/);
+                                      linkText = match ? match[1] : 'Profile';
+                                    }
+                                    profileLink = (
+                                      <a
+                                        href={info.profile}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline text-cyan-300 ml-2"
+                                      >
+                                        {linkText}
+                                      </a>
+                                    );
+                                  }
+                                  return (
+                                    <div key={service} className="mb-2 flex items-center gap-2">
+                                      <span className="font-semibold">{service}:</span>
+                                      <span className="text-green-400">Exists</span>
+                                      {profileLink}
+                                      <CheckCircle className="text-green-400" size={18}/>
+                                      {service === 'Quora' && (
+                                        <button
+                                          className="ml-2 px-2 py-0.5 bg-red-600 text-xs text-white rounded shadow inline-block"
+                                          style={{ fontSize: '0.75rem', lineHeight: 1.8, verticalAlign: 'middle' }}
+                                          onClick={() => {
+                                            Swal.fire({
+                                              title: 'Search Quora',
+                                              input: 'text',
+                                              inputLabel: 'Enter name to search on Quora',
+                                              inputPlaceholder: 'Name',
+                                              showCancelButton: true,
+                                              confirmButtonText: 'Search Quora',
+                                              cancelButtonText: 'Cancel',
+                                              showDenyButton: true,
+                                              denyButtonText: 'Search Profile',
+                                              background: '#222',
+                                              color: '#fff',
+                                              customClass: {
+                                                popup: 'swal2-dark',
+                                                confirmButton: 'bg-red-600',
+                                                denyButton: 'bg-cyan-700',
+                                                cancelButton: 'bg-gray-700',
+                                                input: 'bg-gray-900 text-white',
+                                              },
+                                              preConfirm: (name) => {
+                                                if (!name) {
+                                                  Swal.showValidationMessage('Please enter a name');
+                                                }
+                                                return name;
+                                              },
+                                              preDeny: () => {
+                                                const input = (Swal.getInput() as HTMLInputElement);
+                                                if (!input.value) {
+                                                  Swal.showValidationMessage('Please enter a name');
+                                                  return false;
+                                                }
+                                                return input.value;
+                                              }
+                                            }).then((result) => {
+                                              if (result.isConfirmed && result.value) {
+                                                window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}`, '_blank');
+                                              } else if (result.isDenied && result.value) {
+                                                window.open(`https://quora.com/search?q=${encodeURIComponent(result.value)}&type=profile`, '_blank');
+                                              }
+                                            });
+                                          }}
+                                        >
+                                          Search for accounts
+                                        </button>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                            </div>
+                            {/* Facebook search button for email */}
+                            {email && (
+                              <div className="mt-2 flex">
+                                <button
+                                  className="px-3 py-1 bg-blue-700 hover:bg-blue-800 text-white rounded shadow text-xs font-semibold"
+                                  onClick={() => window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(email)}`, '_blank')}
+                                >
+                                  Search this email on Facebook
+                                </button>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-cyan-300">No accounts found for this email.</div>
+                        )}
+                      </div>
+                    )}
+                    {phoneScanResult && (
+                      <div className="mb-6">
+                        <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Phone Account Existence Scan</h3>
+                        {scanLoading.phone ? (
+                          <div className="flex items-center gap-2 text-cyan-300">
+                            <LoaderCircle className="animate-spin" size={20} />
+                            Scanning for accounts...
+                          </div>
+                        ) : phoneScanResult.scanResults ? (
+                          <>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {Object.entries(phoneScanResult.scanResults)
+                                .filter(([, info]: any) => info.accountExist)
+                                .map(([service, info]: any) => (
+                                  <div key={service} className="mb-2 flex items-center gap-2">
+                                    <span className="font-semibold">{service}:</span>
+                                    <span className="text-green-400">Exists</span>
+                                    <CheckCircle className="text-green-400" size={18}/>
+                                  </div>
+                                ))}
+                            </div>
+                            {/* Facebook search button for phone */}
+                            {phone && (
+                              <div className="mt-2 flex">
+                                <button
+                                  className="px-3 py-1 bg-blue-700 hover:bg-blue-800 text-white rounded shadow text-xs font-semibold"
+                                  onClick={() => window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(phone)}`, '_blank')}
+                                >
+                                  Search this phone on Facebook
+                                </button>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-cyan-300">No accounts found for this phone.</div>
+                        )}
+                      </div>
+                    )}
+                    {usernameResult && (
+                      <div className="mb-6">
+                        <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Username Account Existence Scan</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {Object.entries(emailScanResult.scanResults)
+                          {Object.entries(usernameResult.results || {})
                             .filter(([, info]: any) => info.accountExist)
                             .map(([service, info]: any) => (
                               <div key={service} className="mb-2 flex items-center gap-2">
                                 <span className="font-semibold">{service}:</span>
                                 <span className="text-green-400">Exists</span>
+                                {info.profile && (
+                                  <a href={info.profile} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-2">Profile</a>
+                                )}
+                                <CheckCircle className="text-green-400" size={18}/>
                               </div>
                             ))}
                         </div>
-                      ) : (
-                        <div className="text-cyan-300">No accounts found for this email.</div>
-                      )}
-                    </div>
-                  )}
-                  {phoneScanResult && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Phone Account Existence Scan</h3>
-                      {scanLoading.phone ? (
-                        <div className="flex items-center gap-2 text-cyan-300">
-                          <LoaderCircle className="animate-spin" size={20} />
-                          Scanning for accounts...
-                        </div>
-                      ) : phoneScanResult.scanResults ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {Object.entries(phoneScanResult.scanResults)
-                            .filter(([, info]: any) => info.accountExist)
-                            .map(([service, info]: any) => (
-                              <div key={service} className="mb-2 flex items-center gap-2">
-                                <span className="font-semibold">{service}:</span>
-                                <span className="text-green-400">Exists</span>
+                        {/* Facebook search button for username */}
+                        {username && (
+                          <div className="mt-2 flex">
+                            <button
+                              className="px-3 py-1 bg-blue-700 hover:bg-blue-800 text-white rounded shadow text-xs font-semibold"
+                              onClick={() => window.open(`https://www.facebook.com/search/top?q=${encodeURIComponent(username)}`, '_blank')}
+                            >
+                              Search this username on Facebook
+                            </button>
+                          </div>
+                        )}
+                        {/* Search Fake Accounts button and logic */}
+                        <div className="mt-6">
+                          <button
+                            className="px-4 py-2 bg-cyan-700 hover:bg-cyan-800 text-white rounded-md font-semibold shadow disabled:opacity-50"
+                            onClick={handleFakeSearch}
+                            disabled={fakeLoading}
+                          >
+                            {fakeLoading ? 'Searching Fake Accounts...' : 'Search Fake Accounts'}
+                          </button>
+                          {fakeLoading && (
+                            <div className="mt-4 w-full">
+                              <div className="h-3 bg-cyan-900 rounded">
+                                <div
+                                  className="h-3 bg-cyan-400 rounded transition-all"
+                                  style={{ width: `${(fakeProgress / (fakeTotal || 1)) * 100}%` }}
+                                />
                               </div>
-                            ))}
+                              <div className="text-xs text-cyan-200 mt-1">{fakeProgress} / {fakeTotal} usernames searched</div>
+                            </div>
+                          )}
+                          {fakeError && <div className="text-red-400 mt-2">{fakeError}</div>}
                         </div>
-                      ) : (
-                        <div className="text-cyan-300">No accounts found for this phone.</div>
-                      )}
-                    </div>
-                  )}
-                  {usernameResult && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Username Account Existence Scan</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {Object.entries(usernameResult.results || {})
-                          .filter(([, info]: any) => info.accountExist)
-                          .map(([service, info]: any) => (
-                            <div key={service} className="mb-2 flex items-center gap-2">
-                              <span className="font-semibold">{service}:</span>
-                              <span className="text-green-400">Exists</span>
-                              {info.profile && (
-                                <a href={info.profile} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-2">Profile</a>
-                              )}
+                        {/* Fake Results */}
+                        {fakeResults.length > 0 && (
+                          <div className="mt-6">
+                            <h4 className="text-cyan-300 font-semibold mb-2">Fake Username Results</h4>
+                            <div className="max-h-64 overflow-y-auto border border-cyan-900 rounded bg-black bg-opacity-40 p-2">
+                              {fakeResults.map((res, idx) => {
+                                let platforms: any[] = [];
+                                if (res.results && res.username && res.results[res.username]) {
+                                  platforms = res.results[res.username];
+                                } else if (res[res.username]) {
+                                  platforms = res[res.username];
+                                }
+                                const foundAccounts = Array.isArray(platforms)
+                                  ? platforms.filter((p: any) => p.available === 'False' && p.link)
+                                  : [];
+                                const foundCount = foundAccounts.length;
+                                return (
+                                  <div key={res.username + idx} className="mb-4">
+                                    <span className="font-mono text-cyan-200">{res.username}</span>
+                                    {res.error ? (
+                                      <span className="text-red-400 ml-2">{res.error}</span>
+                                    ) : (
+                                      <span className="ml-2 text-green-400">{foundCount} account{foundCount !== 1 ? 's' : ''} found</span>
+                                    )}
+                                    {foundCount > 0 && (
+                                      <div className="ml-4 mt-1 space-y-1">
+                                        <ul className="list-disc ml-4">
+                                          {foundAccounts.map((acc: any, i: number) => (
+                                            <li key={acc.platform + i} className="text-xs">
+                                              <span className="font-semibold text-cyan-200">{acc.platform}:</span>
+                                              <a href={acc.link} target="_blank" rel="noopener noreferrer" className="underline text-cyan-300 ml-1">{acc.link}</a>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {maigretResult && maigretResult.length > 0 && (
+                      <div className="mb-6">
+                        <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Maigret Results</h3>
+                        <div className="space-y-2">
+                          {maigretResult.map((result: any, index: number) => (
+                            <div key={index} className="p-3 bg-black bg-opacity-40 rounded border border-cyan-900">
+                              <div className="font-semibold text-cyan-300">{result.site || result.service}</div>
+                              <a href={result.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline break-all mb-1">
+                                {result.url}
+                              </a>
                             </div>
                           ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  {maigretResult && maigretResult.length > 0 && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">Maigret Results</h3>
-                      <div className="space-y-2">
-                        {maigretResult.map((result: any, index: number) => (
-                          <div key={index} className="p-3 bg-black bg-opacity-40 rounded border border-cyan-900">
-                            <div className="font-semibold text-cyan-300">{result.site || result.service}</div>
-                            <a href={result.url} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline break-all mb-1">
-                              {result.url}
-                            </a>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
-            <DorkResults dorkResult={dorkResult} />
+              )}
+              <DorkResults dorkResult={dorkResult} />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+      {/* Export as PDF Button - bottom center, hidden on print */}
+      <div className="w-full flex justify-center mt-10 mb-8 print:hidden">
+        <button
+          id="export-pdf-btn"
+          onClick={handlePrint}
+          className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-full shadow-lg"
+          style={{ printColorAdjust: 'exact' }}
+        >
+          Export as PDF
+        </button>
+      </div>
+      <style>{`
+        @media print {
+          #export-pdf-btn { display: none !important; }
+        }
+      `}</style>
     </>
   );
 }
